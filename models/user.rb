@@ -10,5 +10,8 @@ class User
   property :premium, Boolean
 
   has 1, :setting
+  has n, :tours
+  has n, :savedtours
+  has n, :tours, :through => :savedtours
 end
 

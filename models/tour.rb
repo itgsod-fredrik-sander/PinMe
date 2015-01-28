@@ -7,4 +7,7 @@ class Tour
   property :rating, Float
 
   has n, :pins
+  belongs_to :user
+  has n, :savedtours
+  has n, :users, :through => :savedtours
 end

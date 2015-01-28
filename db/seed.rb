@@ -2,22 +2,31 @@ class Seed
   def self.seed
     tours
     pins
+    settings
+    users
   end
 
 
   def self.pins
 
     pins = [
-        { sequencepos: 0, description: "Pin number one is a fine pun", img_url: "smexy.png", x: 12.3, y: 21.3 },
-        { sequencepos: 1, description: "Pin number two is a fine pun", img_url: "lexicon.png", x: 12.3, y: 21.3 },
-        { sequencepos: 2, description: "Pin number three is a fine pun", img_url: "lyxfisk.png", x: 12.3, y: 21.3 },
-        { sequencepos: 3, description: "Pin number four is a fine pun", img_url: "tacobiff.png", x: 12.3, y: 21.3 },
+        { sequencepos: 0, description: "Pin number one is a fine pun", img_url: "smexy.png", x: 12.3, y: 21.3, tour_id: 1 },
+        { sequencepos: 1, description: "Pin number two is a fine pun", img_url: "lexicon.png", x: 12.3, y: 21.3,tour_id: 1 },
+        { sequencepos: 2, description: "Pin number three is a fine pun", img_url: "lyxfisk.png", x: 12.3, y: 21.3, tour_id: 1 },
+        { sequencepos: 3, description: "Pin number four is a fine pun", img_url: "tacobiff.png", x: 12.3, y: 21.3, tour_id: 1 }
     ]
     pins.each {|pin| Pin.create(pin)}
 
   end
 
   def self.settings
+    settings = [
+        {zoomlevel: 6, language: "English", user_id: 1},
+        {zoomlevel: 3, language: "English", user_id: 2},
+        {zoomlevel: 5, language: "English", user_id: 3},
+        {zoomlevel: 2, language: "English", user_id: 4}
+    ]
+    settings.each {|setting| Setting.create(setting)}
 
 
 
@@ -25,17 +34,29 @@ class Seed
 
   def self.tours
     tours = [
-        { name: "Rtour1", description: "1 swag 4 pontus", rating: 2.5},
-        { name: "Rtour2", description: "2 swag 4 pontus", rating: 4.5},
-        { name: "Rtour3", description: "3 swag 4 pontus", rating: 1.5},
-        { name: "Rtour4", description: "4 swag 4 pontus", rating: 2.5}
+        { name: "Rtour1", description: "stockholm.tour", rating: 2.5 },
+        { name: "Rtour2", description: "best tour ever", rating: 4.5 },
+        { name: "Rtour3", description: "lindas beutiful tour", rating: 1.5 },
+        { name: "Rtour4", description: "beer run in japan", rating: 2.5 }
     ]
-    tours.each {|tour| Tour.create(tour)}
+    tours.each { |tour| Tour.create(tour) }
 
   end
 
-  # def self.users
-  #
-  # end
+   def self.users
+    users = [
+        { first_name: "Refugio", last_name: "Hertzog", username: "test",
+          password:"test", email: "test@test.test", premium: true },
+        { first_name: "Pontus", last_name: "Lindgren", username: "pontus.lindgren",
+          password:"test1", email: "test@testium.test", premium: true },
+        { first_name: "Lukas", last_name: "Ahlgren", username: "lukasahl",
+          password:"test12", email: "test@testimum.test", premium: false },
+        { first_name: "Fredrik", last_name: "Lenton", username: "frellen",
+          password:"test123", email: "test@testiumim.test", premium: true },
+        { first_name: "Isobel", last_name: "Storch", username: "boytoy",
+          password:"test1234", email: "test@idontevenknow.anymore", premium: false }
+    ]
+    users.each { |user| User.create(user) }
+   end
 
 end

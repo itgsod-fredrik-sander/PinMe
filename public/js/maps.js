@@ -101,6 +101,7 @@ function initialize() {
         success: function(res) {
           clearPins(pins);
           var data = $.parseJSON(res);
+
           $.each(data, function(i, item) {
             var pos = new google.maps.LatLng(item.latitude, item.longitude);
             var marker = new google.maps.Marker({
@@ -110,6 +111,25 @@ function initialize() {
             });
 
             pins.push(marker);
+
+            var contentString = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading"> ' + item.title + '</h1>'+
+            '<div id="bodyContent">'+
+            '<p>' + item.description + '</p>'+
+            '<p> adsfadsfadsf adfiasdnfiu </p>' +
+            '<p> asdfnasdfasndfaiusd </p>' + 
+            '</div>'+
+            '</div>';
+
+            var infowindow = new google.maps.InfoWindow({
+                content: contentString
+            });
+
+            google.maps.event.addListener(marker, 'click', function() {
+              infowindow.open(map,marker);
+            });
           });
         }
       })

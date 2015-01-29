@@ -5,8 +5,8 @@ class Pin
   property :sequencepos, Integer
   property :description, Text
   property :img_url, String
-  property :x, Float
-  property :y, Float
+  property :longitude, Float
+  property :latitude, Float
 
   belongs_to :tour
 end

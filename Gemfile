@@ -7,6 +7,7 @@ gem 'dm-sqlite-adapter', :group => :development
 gem 'slim'
 gem 'bcrypt'
 gem 'tilt', '~> 1.4.1' #temporary fix
+gem 'json'
 
 group :test do
   gem 'rspec'

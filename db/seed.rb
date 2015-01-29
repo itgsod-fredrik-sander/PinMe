@@ -4,6 +4,7 @@ class Seed
     pins
     settings
     users
+    savedtours
   end
 
 
@@ -34,10 +35,10 @@ class Seed
 
   def self.tours
     tours = [
-        { name: "Rtour1", description: "stockholm.tour", rating: 2.5 },
-        { name: "Rtour2", description: "best tour ever", rating: 4.5 },
-        { name: "Rtour3", description: "lindas beutiful tour", rating: 1.5 },
-        { name: "Rtour4", description: "beer run in japan", rating: 2.5 }
+        { user_id: 4, name: "Rtour1", description: "stockholm.tour", rating: 2.5 },
+        { user_id: 5, name: "Rtour2", description: "best tour ever", rating: 4.5 },
+        { user_id: 5, name: "Rtour3", description: "lindas beutiful tour", rating: 1.5 },
+        { user_id: 1, name: "Rtour4", description: "beer run in japan", rating: 2.5 }
     ]
     tours.each { |tour| Tour.create(tour) }
 
@@ -58,5 +59,15 @@ class Seed
     ]
     users.each { |user| User.create(user) }
    end
+
+  def self.savedtours
+    savedtours = [
+        {user_id: 1,tour_id: 1},
+        {user_id: 2,tour_id: 2},
+        {user_id: 2,tour_id: 3},
+        {user_id: 3,tour_id: 3}
+    ]
+    savedtours.each { |savedtour| Savedtour.create(savedtour) }
+  end
 
 end

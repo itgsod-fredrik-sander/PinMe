@@ -3,7 +3,8 @@ module Get
 
     def self.registered(app)
       app.get '/tourdata' do 
-        puts "YES BOX" + params['id'] 
+        tour = Tour.get(params['id'])
+        tour.pins.to_json
       end
     end
 

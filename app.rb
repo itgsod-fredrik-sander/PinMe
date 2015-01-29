@@ -9,4 +9,5 @@ class App < Sinatra::Base
   helpers Sinatra::App::Helpers
 
   register Get::Root
+  register Get::Tourdata
 end

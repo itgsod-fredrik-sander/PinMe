@@ -10,10 +10,10 @@ class Seed
 
   def self.pins
     pins = [
-        { sequencepos: 0, description: "Pin number one is a fine pun", img_url: "smexy.png", x: 12.3, y: 21.3, tour_id: 1 },
-        { sequencepos: 1, description: "Pin number two is a fine pun", img_url: "lexicon.png", x: 12.3, y: 21.3,tour_id: 1 },
-        { sequencepos: 2, description: "Pin number three is a fine pun", img_url: "lyxfisk.png", x: 12.3, y: 21.3, tour_id: 1 },
-        { sequencepos: 3, description: "Pin number four is a fine pun", img_url: "tacobiff.png", x: 12.3, y: 21.3, tour_id: 1 }
+        { sequencepos: 0, description: "Pin number one is a fine pun", img_url: "smexy.png", x: 12.3, y: 33.3, tour_id: 1 },
+        { sequencepos: 1, description: "Pin number two is a fine pun", img_url: "lexicon.png", x: 24.3, y: 45.3,tour_id: 1 },
+        { sequencepos: 2, description: "Pin number three is a fine pun", img_url: "lyxfisk.png", x: 36.3, y: 57.3, tour_id: 1 },
+        { sequencepos: 3, description: "Pin number four is a fine pun", img_url: "tacobiff.png", x: 58.3, y: 69.3, tour_id: 1 }
     ]
 
     pins.each {|pin| Pin.create(pin)}

@@ -9,15 +9,14 @@ class Seed
 
 
   def self.pins
-
     pins = [
         { sequencepos: 0, description: "Pin number one is a fine pun", img_url: "smexy.png", x: 12.3, y: 21.3, tour_id: 1 },
         { sequencepos: 1, description: "Pin number two is a fine pun", img_url: "lexicon.png", x: 12.3, y: 21.3,tour_id: 1 },
         { sequencepos: 2, description: "Pin number three is a fine pun", img_url: "lyxfisk.png", x: 12.3, y: 21.3, tour_id: 1 },
         { sequencepos: 3, description: "Pin number four is a fine pun", img_url: "tacobiff.png", x: 12.3, y: 21.3, tour_id: 1 }
     ]
-    pins.each {|pin| Pin.create(pin)}
 
+    pins.each {|pin| Pin.create(pin)}
   end
 
   def self.settings
@@ -27,10 +26,8 @@ class Seed
         {zoomlevel: 5, language: "English", user_id: 3},
         {zoomlevel: 2, language: "English", user_id: 4}
     ]
+
     settings.each {|setting| Setting.create(setting)}
-
-
-
   end
 
   def self.tours
@@ -40,8 +37,8 @@ class Seed
         { user_id: 5, name: "Rtour3", description: "lindas beutiful tour", rating: 1.5 },
         { user_id: 1, name: "Rtour4", description: "beer run in japan", rating: 2.5 }
     ]
-    tours.each { |tour| Tour.create(tour) }
 
+    tours.each { |tour| Tour.create(tour) }
   end
 
    def self.users
@@ -57,6 +54,7 @@ class Seed
         { first_name: "Isobel", last_name: "Storch", username: "boytoy",
           password:"test1234", email: "test@idontevenknow.anymore", premium: false }
     ]
+
     users.each { |user| User.create(user) }
    end
 
@@ -67,6 +65,7 @@ class Seed
         {user_id: 2,tour_id: 3},
         {user_id: 3,tour_id: 3}
     ]
+
     savedtours.each { |savedtour| Savedtour.create(savedtour) }
   end
 

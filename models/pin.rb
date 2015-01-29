@@ -3,6 +3,7 @@ class Pin
 
   property :id, Serial
   property :sequencepos, Integer
+  property :title, Text
   property :description, Text
   property :img_url, String
   property :longitude, Float

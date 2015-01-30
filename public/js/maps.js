@@ -126,6 +126,7 @@ function initialize() {
 
             google.maps.event.addListener(marker, 'click', function() {
               infowindow.open(map,marker);
+              map.panTo(marker.position);
             });
 
             map.panTo(pins[0].position);

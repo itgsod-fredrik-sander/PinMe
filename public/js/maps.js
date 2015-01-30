@@ -100,6 +100,7 @@ function initialize() {
         context: document.body,
         success: function(res) {
           clearPins(pins);
+          console.log(pins + "0 pins ?");
           var data = $.parseJSON(res);
 
           $.each(data, function(i, item) {
@@ -125,6 +126,8 @@ function initialize() {
             google.maps.event.addListener(marker, 'click', function() {
               infowindow.open(map,marker);
             });
+
+            map.panTo(pins[0].position);
           });
         }
       })
@@ -137,6 +140,8 @@ function clearPins(pins) {
   for (i in pins) {
       pins[i].setMap(null);
   }
+
+  pins.length = 0;
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

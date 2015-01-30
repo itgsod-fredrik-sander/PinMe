@@ -113,19 +113,14 @@ function initialize() {
             pins.push(marker);
 
             var contentString = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
             '<h1 id="firstHeading" class="firstHeading"> ' + item.title + '</h1>'+
             '<div id="bodyContent">'+
             '<p>' + item.description + '</p>'+
-            '<p> adsfadsfadsf adfiasdnfiu </p>' +
-            '<p> asdfnasdfasndfaiusd </p>' + 
             '</div>'+
             '</div>';
 
-            var infowindow = new google.maps.InfoWindow({
-                content: contentString
-            });
+            var infowindow = new google.maps.InfoWindow;
+            infowindow.setContent(contentString);
 
             google.maps.event.addListener(marker, 'click', function() {
               infowindow.open(map,marker);
@@ -136,14 +131,12 @@ function initialize() {
 
       e.preventDefault();
   });
-}
+} 
 
 function clearPins(pins) {
   for (i in pins) {
       pins[i].setMap(null);
   }
-
-  pins.length = 0;
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);

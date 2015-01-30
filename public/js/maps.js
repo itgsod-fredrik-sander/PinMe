@@ -2,6 +2,7 @@ function initialize() {
 
   var mapOptions = {
       zoom: 3,
+      minZoom: 3,
       center: { lat: -34.397, lng: 150.644},
       disableDefaultUI: true,
       zoomControl: true

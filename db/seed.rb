@@ -17,8 +17,8 @@ class Seed
 
         { sequencepos: 0, description: "Pin number one is a fine pun", title: 'Pin two one', img_url: "smexy.png", longitude: 30.3, latitude: 45.3, tour_id: 2 },
         { sequencepos: 1, description: "Pin number two is a fine pun", title: 'Pin two two', img_url: "lexicon.png", longitude: 30.3, latitude: 15.3, tour_id: 2 },
-        { sequencepos: 2, description: "Pin number three is a fine pun", title: 'Pin three three', img_url: "lyxfisk.png", longitude: 30.3, latitude: 20.3, tour_id: 2 },
-        { sequencepos: 3, description: "Pin number four is a fine pun", title: 'Pin four four', img_url: "tacobiff.png", longitude: 30.3, latitude: 10.3, tour_id: 2 }
+        { sequencepos: 2, description: "Pin number three is a fine pun", title: 'Pin two three', img_url: "lyxfisk.png", longitude: 30.3, latitude: 20.3, tour_id: 2 },
+        { sequencepos: 3, description: "Pin number four is a fine pun", title: 'Pin two four', img_url: "tacobiff.png", longitude: 30.3, latitude: 10.3, tour_id: 2 }
     ]
 
     pins.each {|pin| Pin.create(pin)}

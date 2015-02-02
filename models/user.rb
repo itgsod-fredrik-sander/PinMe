@@ -13,5 +13,9 @@ class User
   has n, :tours
   has n, :savedtours
   has n, :tours, :through => :savedtours
+
+  def name
+    @first_name + ' ' + @last_name
+  end
 end
 

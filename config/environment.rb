@@ -11,7 +11,7 @@ configure :development do
   # Enable logging to console
   DataMapper::Logger.new($stdout, :debug)
 
-  DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/db/app-dev.sqlite")
+  DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/db/db.sqlite")
 
   # Enable pretty printing of Slim-generated HTML
   Slim::Engine.set_options pretty: true, sort_attrs: false
@@ -23,7 +23,7 @@ end
 
 configure :test do
 
-  DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/db/app-dev.sqlite")
+  DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/db/dev-db.sqlite")
 
 end
 

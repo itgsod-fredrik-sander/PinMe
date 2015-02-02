@@ -4,7 +4,7 @@ class User
   property :id, Serial
   property :first_name, String
   property :last_name, String
-  property :username, String
+  property :username, String, :unique => true
   property :password, BCryptHash
   property :email, String
   property :premium, Boolean

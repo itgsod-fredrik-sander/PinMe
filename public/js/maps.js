@@ -94,14 +94,13 @@ function initialize() {
   var pins = []
 
   $('#search-tour').click(function(e) {
-    console.log('clicked');
+
     $.ajax({
         url: '/tourdata',
         data: 'id=' + $('#id').val(),
         context: document.body,
         success: function(res) {
           clearPins(pins);
-          console.log(pins + "0 pins ?");
           var data = $.parseJSON(res);
 
           $.each(data, function(i, item) {
@@ -136,6 +135,7 @@ function initialize() {
 
       e.preventDefault();
   });
+
 } 
 
 function clearPins(pins) {

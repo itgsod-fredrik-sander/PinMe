@@ -119,6 +119,7 @@ DEPENDENCIES
   capybara
   data_mapper
   dm-sqlite-adapter
+  json
   rspec
   selenium-webdriver
   sinatra

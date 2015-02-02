@@ -23,7 +23,7 @@ end
 
 configure :test do
 
-  DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/db/app-test.sqlite")
+  DataMapper.setup(:default, "sqlite:///#{Dir.pwd}/db/app-dev.sqlite")
 
 end
 

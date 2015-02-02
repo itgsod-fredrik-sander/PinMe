@@ -9,7 +9,7 @@ describe User do
   describe 'name convenience method' do
 
     it 'should return first and last names' do
-      @user.name.should match 'Refugio Hertzog'
+      expect( @user.name ).to match 'Refugio Hertzog'
     end
 
   end

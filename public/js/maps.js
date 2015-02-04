@@ -119,9 +119,13 @@ function line(map) {
   poly = new google.maps.Polyline({ map: map });
   clickedPoints = []
   google.maps.event.addListener(map, "click", function(evt) {
-    /* Debugging the class type of evt and seeing if you can create near identical objects with maps.LatLng*/
+    /* Debugging the class type of evt and seeing if you can create near identical objects*/
     clickedPoints.push(evt.latLng);
-    console.log(new google.maps.LatLng(evt.lat, evt.lng));
+    console.log(new google.maps.LatLng(evt.latLng.k, evt.latLng.D));
+    // D = Longitude
+    console.log(evt.latLng.D);
+    // K = Latitude
+    console.log(evt.latLng.k);
     console.log(clickedPoints);
     if (shiftPressed || path.getLength() === 0) {
       path.push(evt.latLng);

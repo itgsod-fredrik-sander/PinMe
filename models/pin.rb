@@ -2,7 +2,7 @@ class Pin
   include DataMapper::Resource
 
   property :id, Serial
-  property :sequencepos, Integer
+  property :sequence_pos, Integer
   property :title, Text
   property :description, Text
   property :img_url, String

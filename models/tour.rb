@@ -6,8 +6,10 @@ class Tour
   property :description, Text
   property :rating, Float
 
+  has n, :lines
   has n, :pins
-  belongs_to :user
   has n, :savedtours
   has n, :users, :through => :savedtours
+  belongs_to :user
+
 end

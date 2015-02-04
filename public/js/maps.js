@@ -9,6 +9,7 @@ function initialize() {
   }
       
   var map = new google.maps.Map(document.getElementById('map-canvas'), mapOptions);
+  line(map);
 
   map.set('styles', [
       {
@@ -114,6 +115,31 @@ function initialize() {
 
 }
 
+function line(map) {
+  poly = new google.maps.Polyline({ map: map });
+  clickedPoints = []
+  google.maps.event.addListener(map, "click", function(evt) {
+    /* Debugging the class type of evt and seeing if you can create near identical objects with maps.LatLng*/
+    clickedPoints.push(evt.latLng);
+    console.log(new google.maps.LatLng(evt.lat, evt.lng));
+    console.log(clickedPoints);
+    if (shiftPressed || path.getLength() === 0) {
+      path.push(evt.latLng);
+    if(path.getLength() === 1) {
+      poly.setPath(path);
+    }
+      } else {
+        service.route({ origin: path.getAt(path.getLength() - 1), destination: evt.latLng, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+              path.push(result.routes[0].overview_path[i]);
+            }
+          }
+        });
+      }
+  });
+}
+
 function createMarker(item, map) {
   var pos = new google.maps.LatLng(item.latitude, item.longitude);
   var marker = new google.maps.Marker({
@@ -151,3 +177,6 @@ function clearPins(pins) {
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
+var map, path = new google.maps.MVCArray(), service = new google.maps.DirectionsService(), shiftPressed = false, poly;
+google.maps.event.addDomListener(document, "keydown", function(e) { shiftPressed = e.shiftKey; });
+google.maps.event.addDomListener(document, "keyup", function(e) { shiftPressed = e.shiftKey; });

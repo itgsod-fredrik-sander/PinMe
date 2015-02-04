@@ -92,7 +92,6 @@ function initialize() {
   ]);
 
   var pins = []
-
   $('#search-tour').click(function(e) {
 
     $.ajax({
@@ -104,30 +103,7 @@ function initialize() {
           var data = $.parseJSON(res);
 
           $.each(data, function(i, item) {
-            var pos = new google.maps.LatLng(item.latitude, item.longitude);
-            var marker = new google.maps.Marker({
-                position: pos,
-                map: map,
-                title: 'test'
-            });
-
-            pins.push(marker);
-
-            var contentString = '<div id="content">'+
-            '<h1 id="firstHeading" class="firstHeading"> ' + item.title + '</h1>'+
-            '<div id="bodyContent">'+
-            '<p>' + item.description + '</p>'+
-            '</div>'+
-            '</div>';
-
-            var infowindow = new google.maps.InfoWindow;
-            infowindow.setContent(contentString);
-
-            google.maps.event.addListener(marker, 'click', function() {
-              infowindow.open(map,marker);
-              map.panTo(marker.position);
-            });
-
+            pins.push(createMarker(item, map));
             map.panTo(pins[0].position);
           });
         }
@@ -136,6 +112,34 @@ function initialize() {
       e.preventDefault();
   });
 
+}
+
+function createMarker(item, map) {
+  var pos = new google.maps.LatLng(item.latitude, item.longitude);
+  var marker = new google.maps.Marker({
+      position: pos,
+      map: map,
+      title: 'test'
+  });
+
+  var contentString = buildContentString(item);
+  var infowindow = new google.maps.InfoWindow;
+  infowindow.setContent(contentString);
+
+  google.maps.event.addListener(marker, 'click', function() {
+    infowindow.open(map,marker);
+    map.panTo(marker.position);
+  });
+
+  return marker;
+}
+
+function buildContentString(item) {
+  return '<div id="content">' + '<h1 id="firstHeading" class="firstHeading"> ' + item.title + '</h1>' +
+  '<div id="bodyContent">'+
+  '<p>' + item.description + '</p>'+
+  '</div>'+
+  '</div>';
 } 
 
 function clearPins(pins) {

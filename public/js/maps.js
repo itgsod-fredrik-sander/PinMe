@@ -119,7 +119,8 @@ function line(map) {
   poly = new google.maps.Polyline({ map: map });
   clickedPoints = []
   google.maps.event.addListener(map, "click", function(evt) {
-    /* Debugging the class type of evt and seeing if you can create near identical objects*/
+    /* Debugging the class type of evt and seeing if you can create near identical objects.
+       Next, save the clicked points into the database and then draw the route between the clicked points on tour load */
     clickedPoints.push(evt.latLng);
     console.log(new google.maps.LatLng(evt.latLng.k, evt.latLng.D));
     // D = Longitude

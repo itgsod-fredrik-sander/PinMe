@@ -118,32 +118,31 @@ function initialize() {
 function line(map) {
   poly = new google.maps.Polyline({ map: map });
   google.maps.event.addListener(map, "click", function(evt) {
-    /* Debugging the class type of evt and seeing if you can create near identical objects.
-       Next, save the clicked points into the database and then draw the route between the clicked points on tour load */
-    //clikedPoint = new google.maps.LatLng(evt.latLng.k, evt.latLng.D);
 
-    $.ajax({
-      url: '/new/clickedpoint',
-      type: 'POST',
-      data: {'lng': evt.latLng.D, 'lat': evt.latLng.k},
-    });
+  // Saves the clicked point to our database
+  // D = Longitude
+  // K = Latitude
+  $.ajax({
+    url: '/new/clickedpoint',
+    type: 'POST',
+    data: {'lng': evt.latLng.D, 'lat': evt.latLng.k},
+  });
 
-    // D = Longitude
-    // K = Latitude
-    if (shiftPressed || path.getLength() === 0) {
-      path.push(evt.latLng);
-    if(path.getLength() === 1) {
-      poly.setPath(path);
-    }
-      } else {
-        service.route({ origin: path.getAt(path.getLength() - 1), destination: evt.latLng, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
-            for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
-              path.push(result.routes[0].overview_path[i]);
-            }
+
+  if (shiftPressed || path.getLength() === 0) {
+    path.push(evt.latLng);
+  if(path.getLength() === 1) {
+    poly.setPath(path);
+  }
+    } else {
+      service.route({ origin: path.getAt(path.getLength() - 1), destination: evt.latLng, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
+        if (status == google.maps.DirectionsStatus.OK) {
+          for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+            path.push(result.routes[0].overview_path[i]);
           }
-        });
-      }
+        }
+      });
+    }
   });
 }
 
@@ -183,7 +182,7 @@ function clearPins(pins) {
   pins.length = 0;
 }
 
-google.maps.event.addDomListener(window, 'load', initialize);
 var map, path = new google.maps.MVCArray(), service = new google.maps.DirectionsService(), shiftPressed = false, poly;
+google.maps.event.addDomListener(window, 'load', initialize);
 google.maps.event.addDomListener(document, "keydown", function(e) { shiftPressed = e.shiftKey; });
 google.maps.event.addDomListener(document, "keyup", function(e) { shiftPressed = e.shiftKey; });

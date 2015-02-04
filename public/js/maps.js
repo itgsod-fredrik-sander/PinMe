@@ -95,7 +95,7 @@ function initialize() {
   var pins = []
   $('#search-tour').click(function(e) {
 
-    $.ajax({
+  $.ajax({
         url: '/tourdata',
         data: 'id=' + $('#id').val(),
         context: document.body,

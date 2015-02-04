@@ -10,6 +10,7 @@ class App < Sinatra::Base
 
   register Get::Root
   register Get::Tourdata
+  register Get::Lines
 
   register Post::New::Clickedpoint
 end

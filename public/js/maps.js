@@ -146,8 +146,8 @@ function line(map) {
   });
 }
 
-function loadLines(tour_id) {
-
+function clearLines() {
+  path = new google.maps.MVCArray();
 }
 
 function createMarker(item, map) {

@@ -2,7 +2,7 @@ class Line
   include DataMapper::Resource
 
   property :id, Serial
-  property :latitude, Interger
+  property :latitude, Integer
   property :longitude, Integer
   property :sequence_pos, Integer
 

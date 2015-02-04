@@ -14,4 +14,15 @@ describe User do
 
   end
 
+  describe 'creating users' do
+
+    it 'should not create an user with the same name' do
+      size = User.all.size
+      User.create(username: 'frellen')
+      User.all.size.should eq size
+    end
+
+  end
+
+
 end

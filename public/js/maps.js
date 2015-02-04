@@ -146,6 +146,10 @@ function line(map) {
   });
 }
 
+function loadLines(tour_id) {
+
+}
+
 function createMarker(item, map) {
   var pos = new google.maps.LatLng(item.latitude, item.longitude);
   var marker = new google.maps.Marker({

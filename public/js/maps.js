@@ -116,7 +116,7 @@ function initialize() {
 }
 
 function line(map) {
-  poly = new google.maps.Polyline({ map: map });
+  poly = new google.maps.Polyline({ map: map, strokeColor: 'blue'});
   google.maps.event.addListener(map, "click", function(evt) {
 
   // Saves the clicked point to our database
@@ -124,20 +124,26 @@ function line(map) {
   // K = Latitude
 
   // in first click freeMove == true although data returned only contains freeMove == false
-  $.ajax({
-    url: '/new/clickedpoint',
-    type: 'POST',
-    data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
-  });
 
   if (shiftPressed || path.getLength() === 0) {
     path.push(evt.latLng);
+    $.ajax({
+      url: '/new/clickedpoint',
+      type: 'POST',
+      data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
+    });
   if(path.getLength() === 1) {
     poly.setPath(path);
   }
     } else {
       service.route({ origin: path.getAt(path.getLength() - 1), destination: evt.latLng, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
         if (status == google.maps.DirectionsStatus.OK) {
+          $.ajax({
+            url: '/new/clickedpoint',
+            type: 'POST',
+            data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
+          });
+          
           for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
             path.push(result.routes[0].overview_path[i]);
           }
@@ -181,7 +187,7 @@ function loadLines() {
 }
 
 function clearLines(map) {
-  poly = new google.maps.Polyline({ map: map });
+  poly = new google.maps.Polyline({ map: map, strokeColor: 'blue'});
   path = new google.maps.MVCArray();
 }
 

@@ -123,6 +123,7 @@ function line(map) {
   // D = Longitude
   // K = Latitude
 
+  // in first click freeMove == true although data returned only contains freeMove == false
   $.ajax({
     url: '/new/clickedpoint',
     type: 'POST',
@@ -161,7 +162,7 @@ function loadLines() {
         var startPos = new google.maps.LatLng(startItem.latitude, startItem.longitude);
         var endPos = new google.maps.LatLng(item.latitude, item.longitude);
 
-        if (item.free_move) {
+        if (item.free_move || i == 0) {
           console.log("FREE MOVED");
           path.push(endPos);
         } else {

@@ -6,8 +6,10 @@ class User
   property :last_name, String
   property :username, String, :unique => true
   property :password, BCryptHash
-  property :email, String
+  property :email, String, :unique => true
   property :premium, Boolean
+
+  validates_length_of :username, :min => 3
 
   has 1, :setting
   has n, :tours
@@ -17,5 +19,6 @@ class User
   def name
     @first_name + ' ' + @last_name
   end
+
 end
 

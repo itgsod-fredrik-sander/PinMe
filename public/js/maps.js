@@ -122,12 +122,12 @@ function line(map) {
   // Saves the clicked point to our database
   // D = Longitude
   // K = Latitude
+
   $.ajax({
     url: '/new/clickedpoint',
     type: 'POST',
-    data: {'lng': evt.latLng.D, 'lat': evt.latLng.k},
+    data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
   });
-
 
   if (shiftPressed || path.getLength() === 0) {
     path.push(evt.latLng);

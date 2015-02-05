@@ -94,6 +94,7 @@ function initialize() {
 
   var pins = []
   $('#search-tour').click(function(e) {
+    clearLines(map);
     loadLines();
     $.ajax({
           url: '/tourdata',
@@ -155,13 +156,16 @@ function loadLines() {
       var data = $.parseJSON(res);
       $.each(data, function(i, item) {
 
+        console.log(res);
         var startItem = i == 0 ? item : data[i - 1]; 
         var startPos = new google.maps.LatLng(startItem.latitude, startItem.longitude);
         var endPos = new google.maps.LatLng(item.latitude, item.longitude);
 
         if (item.free_move) {
+          console.log("FREE MOVED");
           path.push(endPos);
         } else {
+          console.log("NOT FREE MOVE");
           service.route({ origin: startPos, destination: endPos, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
             if (status == google.maps.DirectionsStatus.OK) {
               for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
@@ -175,7 +179,8 @@ function loadLines() {
   });
 }
 
-function clearLines() {
+function clearLines(map) {
+  poly = new google.maps.Polyline({ map: map });
   path = new google.maps.MVCArray();
 }
 

@@ -45,7 +45,18 @@ describe User do
       User.all.size.should_not eq @size
     end
 
+  end
 
+  describe 'creating email' do
+
+    before do
+      @size = User.all.size
+    end
+
+    it 'should creations of emails that already exists' do
+      User.create(email: 'test@idontevenknow.anymore')
+      expect(User.all.size).to eq @size
+    end
 
   end
 

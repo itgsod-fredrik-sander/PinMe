@@ -146,8 +146,6 @@ function line(map) {
 }
 
 function loadLines() {
-
-  // TO DO: Clear current path when loading lines
   poly.setPath(path);
   $.ajax({
     url: '/lines',

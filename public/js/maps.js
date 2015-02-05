@@ -153,8 +153,6 @@ function loadLines() {
     url: '/lines',
     type: 'GET',
     success: function(res) {
-      console.log(res);
-
       var data = $.parseJSON(res);
       $.each(data, function(i, item) {
 

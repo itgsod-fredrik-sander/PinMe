@@ -94,25 +94,24 @@ function initialize() {
 
   var pins = []
   $('#search-tour').click(function(e) {
+    loadLines();
+    $.ajax({
+          url: '/tourdata',
+          data: 'id=' + $('#id').val(),
+          context: document.body,
+          success: function(res) {
+            clearPins(pins);
+            var data = $.parseJSON(res);
 
-  $.ajax({
-        url: '/tourdata',
-        data: 'id=' + $('#id').val(),
-        context: document.body,
-        success: function(res) {
-          clearPins(pins);
-          var data = $.parseJSON(res);
+            $.each(data, function(i, item) {
+              pins.push(createMarker(item, map));
+              map.panTo(pins[0].position);
+            });
+          }
+        })
 
-          $.each(data, function(i, item) {
-            pins.push(createMarker(item, map));
-            map.panTo(pins[0].position);
-          });
-        }
-      })
-
-      e.preventDefault();
-  });
-
+        e.preventDefault();
+    });
 }
 
 function line(map) {
@@ -141,6 +140,35 @@ function line(map) {
             path.push(result.routes[0].overview_path[i]);
           }
         }
+      });
+    }
+  });
+}
+
+function loadLines() {
+
+  // TO DO: Clear current path when loading lines
+  poly.setPath(path);
+  $.ajax({
+    url: '/lines',
+    type: 'GET',
+    success: function(res) {
+      console.log(res);
+
+      var data = $.parseJSON(res);
+      $.each(data, function(i, item) {
+
+        var startItem = i == 0 ? item : data[i - 1]; 
+        var startPos = new google.maps.LatLng(startItem.latitude, startItem.longitude);
+        var endPos = new google.maps.LatLng(item.latitude, item.longitude);
+
+        service.route({ origin: startPos, destination: endPos, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
+          if (status == google.maps.DirectionsStatus.OK) {
+            for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+              path.push(result.routes[0].overview_path[i]);
+            }
+          }
+        });
       });
     }
   });

@@ -145,6 +145,7 @@ function line(map) {
   });
 }
 
+// I believe the path gets drawn from the wrong item (wrong order, hence why the result is weird)
 function loadLines() {
   poly.setPath(path);
   $.ajax({
@@ -158,13 +159,17 @@ function loadLines() {
         var startPos = new google.maps.LatLng(startItem.latitude, startItem.longitude);
         var endPos = new google.maps.LatLng(item.latitude, item.longitude);
 
-        service.route({ origin: startPos, destination: endPos, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
-          if (status == google.maps.DirectionsStatus.OK) {
-            for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
-              path.push(result.routes[0].overview_path[i]);
+        if (item.free_move) {
+          path.push(endPos);
+        } else {
+          service.route({ origin: startPos, destination: endPos, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
+              for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+                path.push(result.routes[0].overview_path[i]);
+              }
             }
-          }
-        });
+          });
+        }
       });
     }
   });

@@ -16,13 +16,20 @@ describe User do
 
   describe 'creating users' do
 
+    before do
+      @size = User.all.size
+    end
+
     it 'should not create an user with the same name' do
-      size = User.all.size
       User.create(username: 'frellen')
-      User.all.size.should eq size
+      User.all.size.should eq @size
+    end
+
+    it 'should not allow creations of usernames with less than 3 chars' do
+      User.create(username: 'fr')
+      User.all.size.should eq @size
     end
 
   end
-
 
 end

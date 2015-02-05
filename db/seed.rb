@@ -49,7 +49,7 @@ class Seed
    def self.users
     users = [
         { first_name: "Refugio", last_name: "Hertzog", username: "test",
-          password:"test", email: "test@test.test", premium: true },
+          password:"test1", email: "test@test.test", premium: true },
         { first_name: "Pontus", last_name: "Lindgren", username: "pontus.lindgren",
           password:"test1", email: "test@testium.test", premium: true },
         { first_name: "Lukas", last_name: "Ahlgren", username: "lukasahl",

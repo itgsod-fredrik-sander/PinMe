@@ -9,7 +9,7 @@ module Post
           if tour_id
             sequence_pos = Tour.get(tour_id).lines.size
             Line.create(latitude: params['lat'], longitude: params['lng'], 
-                        sequence_pos: sequence_pos, tour_id: tour_id)
+                        sequence_pos: sequence_pos, tour_id: tour_id, free_move: params['freeMove'])
           end 
         end
       end

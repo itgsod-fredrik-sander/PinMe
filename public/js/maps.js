@@ -94,8 +94,6 @@ function initialize() {
 
   var pins = []
   $('#search-tour').click(function(e) {
-    clearLines(map);
-    loadLines();
     $.ajax({
           url: '/tourdata',
           data: 'id=' + $('#id').val(),
@@ -108,10 +106,13 @@ function initialize() {
               pins.push(createMarker(item, map));
               map.panTo(pins[0].position);
             });
+
+            clearLines(map);
+            loadLines();
           }
         })
 
-        e.preventDefault();
+      e.preventDefault();
     });
 }
 
@@ -132,21 +133,26 @@ function line(map) {
       type: 'POST',
       data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
     });
-  if(path.getLength() === 1) {
-    poly.setPath(path);
-  }
-    } else {
+
+    if(path.getLength() === 1) {
+      poly.setPath(path);
+    }
+  } else {
       service.route({ origin: path.getAt(path.getLength() - 1), destination: evt.latLng, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
+        var cpStatus = false;
         if (status == google.maps.DirectionsStatus.OK) {
+          cpStatus = true;
+          for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
+            path.push(result.routes[0].overview_path[i]);
+          }
+        }
+
+        if (cpStatus) {
           $.ajax({
             url: '/new/clickedpoint',
             type: 'POST',
             data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
           });
-          
-          for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
-            path.push(result.routes[0].overview_path[i]);
-          }
         }
       });
     }
@@ -169,10 +175,8 @@ function loadLines() {
         var endPos = new google.maps.LatLng(item.latitude, item.longitude);
 
         if (item.free_move || i == 0) {
-          console.log("FREE MOVED");
           path.push(endPos);
         } else {
-          console.log("NOT FREE MOVE");
           service.route({ origin: startPos, destination: endPos, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
             if (status == google.maps.DirectionsStatus.OK) {
               for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
@@ -186,6 +190,7 @@ function loadLines() {
   });
 }
 
+// Not working as intended
 function clearLines(map) {
   poly = new google.maps.Polyline({ map: map, strokeColor: 'blue'});
   path = new google.maps.MVCArray();

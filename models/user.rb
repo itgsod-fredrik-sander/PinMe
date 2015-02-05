@@ -9,7 +9,7 @@ class User
   property :email, String, :unique => true
   property :premium, Boolean
 
-  validates_length_of :username, :min => 3
+  validates_length_of :username, :within => 3...30
 
   has 1, :setting
   has n, :tours

@@ -30,6 +30,23 @@ describe User do
       User.all.size.should eq @size
     end
 
+    it 'should not allow creations of usernames with more than 30 chars' do
+      User.create(username: 'qwert_yuiop_åasdf_ghjkl_öäzxc_vbnm')
+      User.all.size.should eq @size
+    end
+
+    it 'should allow creations of usernames with 3 chars' do
+      User.create(username: 'fre')
+      User.all.size.should_not eq @size
+    end
+
+    it 'should allow creations of usernames with 29 chars' do
+      User.create(username: 'qwertyuiopåasdfghjklöäzxcvbnm')
+      User.all.size.should_not eq @size
+    end
+
+
+
   end
 
 end

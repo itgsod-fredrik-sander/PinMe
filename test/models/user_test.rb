@@ -14,7 +14,7 @@ describe User do
 
   end
 
-  describe 'creating users' do
+  describe 'picking username' do
 
     before do
       @size = User.all.size
@@ -47,7 +47,7 @@ describe User do
 
   end
 
-  describe 'creating email' do
+  describe 'adding email' do
 
     before do
       @size = User.all.size

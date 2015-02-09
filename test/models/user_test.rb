@@ -22,27 +22,27 @@ describe User do
 
     it 'should not create an user with the same name' do
       User.create(username: 'frellen')
-      User.all.size.should eq @size
+      expect(User.all.size).to eq @size
     end
 
     it 'should not allow creations of usernames with less than 3 chars' do
       User.create(username: 'fr')
-      User.all.size.should eq @size
+      expect(User.all.size).to eq @size
     end
 
     it 'should not allow creations of usernames with more than 30 chars' do
       User.create(username: 'qwert_yuiop_åasdf_ghjkl_öäzxc_vbnm')
-      User.all.size.should eq @size
+      expect(User.all.size).to eq @size
     end
 
     it 'should allow creations of usernames with 3 chars' do
       User.create(username: 'fre')
-      User.all.size.should_not eq @size
+      expect(User.all.size).not_to eq @size
     end
 
     it 'should allow creations of usernames with 29 chars' do
       User.create(username: 'qwertyuiopåasdfghjklöäzxcvbnm')
-      User.all.size.should_not eq @size
+      expect(User.all.size).not_to eq @size
     end
 
   end

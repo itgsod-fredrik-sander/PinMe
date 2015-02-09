@@ -26,10 +26,10 @@ class Seed
 
   def self.settings
     settings = [
-        {zoom_level: 6, language: "English", user_id: 1},
-        {zoom_level: 3, language: "English", user_id: 2},
-        {zoom_level: 5, language: "English", user_id: 3},
-        {zoom_level: 2, language: "English", user_id: 4}
+        {zoom_level: 6, language: "English", user_id: 1 },
+        {zoom_level: 3, language: "English", user_id: 2 },
+        {zoom_level: 5, language: "English", user_id: 3 },
+        {zoom_level: 2, language: "English", user_id: 4 }
     ]
 
     settings.each {|setting| Setting.create(setting)}
@@ -65,10 +65,10 @@ class Seed
 
   def self.savedtours
     savedtours = [
-        {user_id: 1,tour_id: 1},
-        {user_id: 2,tour_id: 2},
-        {user_id: 2,tour_id: 3},
-        {user_id: 3,tour_id: 3}
+        {user_id: 1,tour_id: 1 },
+        {user_id: 2,tour_id: 2 },
+        {user_id: 2,tour_id: 3 },
+        {user_id: 3,tour_id: 3 }
     ]
 
     savedtours.each { |savedtour| Savedtour.create(savedtour) }

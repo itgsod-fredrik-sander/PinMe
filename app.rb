@@ -9,6 +9,8 @@ class App < Sinatra::Base
   helpers Sinatra::App::Helpers
 
   register Get::Root
+  register Get::Home
+
   register Get::Tourdata
   register Get::Lines
 

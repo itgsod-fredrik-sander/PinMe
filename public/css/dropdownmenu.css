@@ -1,0 +1,36 @@
+#dropdownMenu {
+  background-color: #313237;
+}
+
+.fa-bars:hover {
+  color: #00D6D8;
+}
+
+.fa-bars {
+  color: white;
+}
+
+a .menutitle i .fa {
+  font-style: bold;
+}
+
+.dropdown-menu {
+  background-color: #313237;
+}
+
+.dropdown-menu li a {
+  color:white;
+  margin-top:0;
+  margin-bottom:0;
+}
+
+.dropdown-menu li a:hover {
+  background-color: #313237;
+  color: #00D6D8;
+}
+
+.dropdown-menu li a {
+  margin: 10px 10px 0px 0px;
+  border-bottom: 1px solid #00D6D8;
+  width: 100%;
+}

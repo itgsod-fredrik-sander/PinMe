@@ -95,49 +95,50 @@ function initialize() {
   var pins = []
   $('#search-tour').click(function(e) {
     $.ajax({
-          url: '/tourdata',
-          data: 'id=' + $('#id').val(),
-          context: document.body,
-          success: function(res) {
-            clearPins(pins);
-            var data = $.parseJSON(res);
+      url: '/tourdata',
+      data: 'id=' + $('#id').val(),
+      context: document.body,
+      success: function(res) {
+        clearPins(pins);
+        var data = $.parseJSON(res);
 
-            $.each(data, function(i, item) {
-              pins.push(createMarker(item, map));
-              map.panTo(pins[0].position);
-            });
+        $.each(data, function(i, item) {
+          pins.push(createMarker(item, map));
+          map.panTo(pins[0].position);
+        });
 
-            clearLines(map);
-            loadLines();
-          }
-        })
+        clearLines(map);
+        loadLines();
+      }
+    });
 
       e.preventDefault();
-    });
+  });
 }
 
 function line(map) {
   poly = new google.maps.Polyline({ map: map, strokeColor: 'blue'});
   google.maps.event.addListener(map, "click", function(evt) {
 
-  // Saves the clicked point to our database
-  // D = Longitude
-  // K = Latitude
+    // Saves the clicked point to our database
+    // D = Longitude
+    // K = Latitude
 
-  // in first click freeMove == true although data returned only contains freeMove == false
+    // in first click freeMove == true although data returned only contains freeMove == false
 
-  if (shiftPressed || path.getLength() === 0) {
-    path.push(evt.latLng);
-    $.ajax({
-      url: '/new/clickedpoint',
-      type: 'POST',
-      data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
-    });
+    if (shiftPressed || path.getLength() === 0) {
+      path.push(evt.latLng);
+      $.ajax({
+        url: '/new/clickedpoint',
+        type: 'POST',
+        data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
+      });
 
-    if(path.getLength() === 1) {
-      poly.setPath(path);
-    }
-  } else {
+      if(path.getLength() === 1) {
+        poly.setPath(path);
+      }
+
+    } else {
       service.route({ origin: path.getAt(path.getLength() - 1), destination: evt.latLng, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
         var cpStatus = false;
         if (status == google.maps.DirectionsStatus.OK) {
@@ -161,24 +162,28 @@ function line(map) {
 
 // I believe the path gets drawn from the wrong item (wrong order, hence why the result is weird)
 function loadLines() {
-  poly.setPath(path);
+  // The problem is that it tries to get two routes, not the actual line drawing code. Look into provideRouteAlternatives.
+
   $.ajax({
     url: '/lines',
     type: 'GET',
     success: function(res) {
       var data = $.parseJSON(res);
+
       $.each(data, function(i, item) {
+        var nextPos = new google.maps.LatLng(item.latitude, item.longitude);
+        if (item.free_move || path.length === 0) {
+          path.push(nextPos);
 
-        console.log(res);
-        var startItem = i == 0 ? item : data[i - 1]; 
-        var startPos = new google.maps.LatLng(startItem.latitude, startItem.longitude);
-        var endPos = new google.maps.LatLng(item.latitude, item.longitude);
-
-        if (item.free_move || i == 0) {
-          path.push(endPos);
+          if (path.getLength() === 1) {
+            poly.setPath(path);
+          }
         } else {
-          service.route({ origin: startPos, destination: endPos, travelMode: google.maps.DirectionsTravelMode.DRIVING }, function(result, status) {
+          console.log("got so far 3");
+          console.log(path.getAt(path.length - 1));
+          service.route({ origin: path.getAt(path.length - 1), destination: nextPos, travelMode: google.maps.DirectionsTravelMode.DRIVING, provideRouteAlternatives: false }, function(result, status) {
             if (status == google.maps.DirectionsStatus.OK) {
+              console.log("got so far 4");
               for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
                 path.push(result.routes[0].overview_path[i]);
               }
@@ -192,8 +197,8 @@ function loadLines() {
 
 // Not working as intended
 function clearLines(map) {
-  poly = new google.maps.Polyline({ map: map, strokeColor: 'blue'});
-  path = new google.maps.MVCArray();
+  //poly = new google.maps.Polyline({ map: map, strokeColor: 'blue'});
+  //path = new google.maps.MVCArray();
 }
 
 function createMarker(item, map) {

@@ -3,7 +3,7 @@ module Get
 
     def self.registered(app)
       app.get '/home' do 
-        'home'
+        slim :home
       end
     end
 

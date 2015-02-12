@@ -227,4 +227,4 @@ function clearPins(pins) {
 var map, path = new google.maps.MVCArray(), service = new google.maps.DirectionsService(), shiftPressed = false, poly;
 google.maps.event.addDomListener(window, 'load', initialize);
 google.maps.event.addDomListener(document, "keydown", function(e) { shiftPressed = e.shiftKey; });
-google.maps.event.addDomListener(document, "keyup", function(e) { shiftPressed = e.shiftKey; })
+google.maps.event.addDomListener(document, "keyup", function(e) { shiftPressed = e.shiftKey; });

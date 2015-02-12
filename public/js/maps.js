@@ -1,3 +1,5 @@
+
+
 function initialize() {
 
   var mapOptions = {
@@ -107,7 +109,6 @@ function initialize() {
           map.panTo(pins[0].position);
         });
 
-        clearLines(map);
         loadLines();
       }
     });
@@ -124,15 +125,9 @@ function line(map) {
     // D = Longitude
     // K = Latitude
 
-    // in first click freeMove == true although data returned only contains freeMove == false
-
     if (shiftPressed || path.getLength() === 0) {
       path.push(evt.latLng);
-      $.ajax({
-        url: '/new/clickedpoint',
-        type: 'POST',
-        data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
-      });
+      $.post('/new/clickedpoint', {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed});
 
       if(path.getLength() === 1) {
         poly.setPath(path);
@@ -149,56 +144,48 @@ function line(map) {
         }
 
         if (cpStatus) {
-          $.ajax({
-            url: '/new/clickedpoint',
-            type: 'POST',
-            data: {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed}
-          });
+          $.post('/new/clickedpoint', {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed});
         }
       });
     }
   });
 }
 
-// I believe the path gets drawn from the wrong item (wrong order, hence why the result is weird)
 function loadLines() {
-  // The problem is that it tries to get two routes, not the actual line drawing code. Look into provideRouteAlternatives.
-
-  $.ajax({
-    url: '/lines',
-    type: 'GET',
-    success: function(res) {
-      var data = $.parseJSON(res);
-
-      $.each(data, function(i, item) {
-        var nextPos = new google.maps.LatLng(item.latitude, item.longitude);
-        if (item.free_move || path.length === 0) {
-          path.push(nextPos);
-
-          if (path.getLength() === 1) {
-            poly.setPath(path);
-          }
-        } else {
-          console.log("got so far 3");
-          console.log(path.getAt(path.length - 1));
-          service.route({ origin: path.getAt(path.length - 1), destination: nextPos, travelMode: google.maps.DirectionsTravelMode.DRIVING, provideRouteAlternatives: false }, function(result, status) {
-            if (status == google.maps.DirectionsStatus.OK) {
-              console.log("got so far 4");
-              for(var i = 0, len = result.routes[0].overview_path.length; i < len; i++) {
-                path.push(result.routes[0].overview_path[i]);
-              }
-            }
-          });
-        }
-      });
-    }
+  $.get('/lines', function (res) {
+    var data = $.parseJSON(res);
+    loadPath(data, 0);
   });
 }
 
-// Not working as intended
-function clearLines(map) {
-  //poly = new google.maps.Polyline({ map: map, strokeColor: 'blue'});
-  //path = new google.maps.MVCArray();
+function loadPath(items, current) {
+  if(current == items.length)
+    return;
+
+  var item = items[current];
+  var next = new google.maps.LatLng(item.latitude, item.longitude);
+
+  if (item.free_move || path.getLength() === 0) {
+    path.push(next);
+
+    if (path.getLength() === 1) {
+      poly.setPath(path);
+    }
+  } else {
+    /* DirectionService.route is a asynchronous function. Because we don't want multiple threads modifying our path's content at the same time
+      we write a recursive function to emulate a synchronous function. With this being said we wait until the path to one of the points have been
+      calculated before continue. */ 
+      
+    service.route({ origin: path.getAt(path.length - 1), destination: next, travelMode: google.maps.DirectionsTravelMode.DRIVING, provideRouteAlternatives: false }, function(result, status) {
+      if (status == google.maps.DirectionsStatus.OK) {
+        for(var j = 0, len = result.routes[0].overview_path.length; j < len; j++) {
+          path.push(result.routes[0].overview_path[j]);
+        }
+
+        loadPath(items, current + 1);
+      }
+    });
+  }
 }
 
 function createMarker(item, map) {
@@ -240,4 +227,4 @@ function clearPins(pins) {
 var map, path = new google.maps.MVCArray(), service = new google.maps.DirectionsService(), shiftPressed = false, poly;
 google.maps.event.addDomListener(window, 'load', initialize);
 google.maps.event.addDomListener(document, "keydown", function(e) { shiftPressed = e.shiftKey; });
-google.maps.event.addDomListener(document, "keyup", function(e) { shiftPressed = e.shiftKey; });
+google.maps.event.addDomListener(document, "keyup", function(e) { shiftPressed = e.shiftKey; })

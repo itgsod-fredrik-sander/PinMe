@@ -10,6 +10,7 @@ class App < Sinatra::Base
 
   register Get::Root
   register Get::Home
+  register Get::Settings
 
   register Get::Tourdata
   register Get::Lines

@@ -174,8 +174,8 @@ function loadPath(items, current) {
   } else {
     /* DirectionService.route is a asynchronous function. Because we don't want multiple threads modifying our path's content at the same time
       we write a recursive function to emulate a synchronous function. With this being said we wait until the path to one of the points have been
-      calculated before continue. */ 
-      
+      calculated before we continue. */ 
+
     service.route({ origin: path.getAt(path.length - 1), destination: next, travelMode: google.maps.DirectionsTravelMode.DRIVING, provideRouteAlternatives: false }, function(result, status) {
       if (status == google.maps.DirectionsStatus.OK) {
         for(var j = 0, len = result.routes[0].overview_path.length; j < len; j++) {

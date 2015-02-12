@@ -1,4 +1,4 @@
-#dropdownMenu {
+#dropdown-menu {
   background-color: #313237;
 }
 
@@ -8,10 +8,6 @@
 
 .fa-bars {
   color: white;
-}
-
-a .menutitle i .fa {
-  font-style: bold;
 }
 
 .dropdown-menu {
@@ -30,7 +26,15 @@ a .menutitle i .fa {
 }
 
 .dropdown-menu li a {
-  margin: 10px 10px 0px 0px;
-  border-bottom: 1px solid #00D6D8;
-  width: 100%;
+  padding-bottom: 7px;
+  padding-top: 7px;
+}
+
+.turquoise-border {
+    content: "";
+    height: 1px;
+    background-image: radial-gradient(#00D6D8, #313237), radial-gradient(#00D6D8, #313237);
+    background-position: 0, 100%, 0, 100%;
+    margin-bottom: 10px;
+    margin-top: 10px;
 }

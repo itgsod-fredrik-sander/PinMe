@@ -14,30 +14,6 @@ nav class="navbar navbar-inverse"
         div class='dropdown'
           button class='btn btn-default dropdown-toggle' type='button' id='dropdown-menu' data-toggle='dropdown' aria-expanded='true' 
             i class='fa fa-bars'
-          ul class='dropdown-menu' role='menu' aria-lebelledby='dropdown-menu'
-            li role='presentation'
-              a class='menutitle turquoise-border-b' role='menuitem' tabindex='-1' href='#'
-                i class='fa fa-bookmark' #{' My Map'}
-              .turquoise-border
-              a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' View Tours
-              .turquoise-border
-              a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' View Pins
-              .turquoise-border      
-              a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Images
-              .turquoise-border
-              a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Search
-              .turquoise-border 
-              a class='menutitle turquoise-border-b' role='menuitem' tabindex='-1' href='#' 
-                i class='fa fa-map-marker' #{' Tours'}
-              .turquoise-border
-              a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Preview
-              .turquoise-border
-              a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Create
-              .turquoise-border 
-              a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Search
-              .turquoise-border 
-              a class='menutitle' role='menuitem' tabindex='0' href='#'
-                i class='fa fa-picture-o' #{' Upload'}
 
       form action='/tourdata' method='get' class="navbar-form navbar-left" role="search"
         div class="form-group"
@@ -59,5 +35,29 @@ nav class="navbar navbar-inverse"
       p class="navbar-text navbar-right"
         a href="#" class="navbar-link" Lukas Antonino Alexander Michanek
 
-div id='map-canvas'
+div id='menu' class='col-md-2'
+  li role='presentation'
+    a class='menutitle turquoise-border-b' role='menuitem' tabindex='-1' href='#'
+      i class='fa fa-bookmark' #{' My Map'}
+    .turquoise-border
+    a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' View Tours
+    .turquoise-border
+    a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' View Pins
+    .turquoise-border      
+    a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Images
+    .turquoise-border
+    a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Search
+    .turquoise-border 
+    a class='menutitle turquoise-border-b' role='menuitem' tabindex='-1' href='#' 
+      i class='fa fa-map-marker' #{' Tours'}
+    .turquoise-border
+    a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Preview
+    .turquoise-border
+    a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Create
+    .turquoise-border 
+    a class='turquoise-border-b' role='menuitem' tabindex='-1' href='#' Search
+    .turquoise-border 
+    a class='menutitle' role='menuitem' tabindex='0' href='#'
+      i class='fa fa-picture-o' #{' Upload'}
+div id='map-canvas' class='col-md-10'
 

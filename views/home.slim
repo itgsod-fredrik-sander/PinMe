@@ -62,6 +62,57 @@ div id='menu' class='col-md-2'
 div id='map-canvas' class='col-md-12'
 
 div id='overlay' class='settings-toggler'
-div id='settings' class='col-md-8 col-md-offset-2'
-  button class='settings-toggler'
+.panel.panel-default.col-md-8.col-md-offset-2 id='settings'
+  .panel-heading Settings
+  .panel-body
+
+    |Change mail:
+    .input-group
+      input.form-control aria-describedby="basic-addon2" placeholder="Current email" type="email"
+    .input-group
+      input.form-control aria-describedby="basic-addon2" placeholder="Change email" type="email"
+
+    |Change password:
+    .input-group
+      input.form-control aria-describedby="basic-addon2" placeholder="Current password" type="password"
+    .input-group
+      input.form-control aria-describedby="basic-addon2" placeholder="New password" type="password"
+    .input-group
+      input.form-control aria-describedby="basic-addon2" placeholder="Confirm password" type="password"
+
+    .dropdown
+      |Language:
+      button#dropdownMenu1.btn.btn-default.dropdown-toggle aria-expanded="true" data-toggle="dropdown" type="button"
+        |Swinglish
+        span.caret
+      ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+        li role="presentation"
+          a href="#" role="menuitem" tabindex="-1"  English
+        li role="presentation"
+          a href="#" role="menuitem" tabindex="-1"  Svenska
+
+    |Zoom level:
+    .btn-group aria-label="..." role="group"
+      button.btn.btn-default type="button"  1
+      button.btn.btn-default type="button"  2
+      button.btn.btn-default type="button"  3
+      button.btn.btn-default type="button"  4
+
+    .dropdown
+      |Username color:
+      button#dropdownMenu1.btn.btn-default.dropdown-toggle aria-expanded="true" data-toggle="dropdown" type="button"
+        |White
+        span.caret
+      ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+        li role="presentation"
+          a href="#" role="menuitem" tabindex="-1"  Blue
+        li role="presentation"
+          a href="#" role="menuitem" tabindex="-1"  Red
+        li role="presentation"
+          a href="#" role="menuitem" tabindex="-1"  Green
+
+    .btn-group aria-label="..." role="group"
+      button.btn.btn-default type="button"  Discard
+    .btn-group aria-label="..." role="group"
+      button.btn.btn-default type="button"  Save
 

@@ -10,11 +10,7 @@ $('#dropdown-menu').click(function() {
   }
 });
 
-$('#settingbutton').click(function() {
-  toggleSettings();
-});
-
-$('#closesetting').click(function() {
+$('.settings-toggler').click(function() {
   toggleSettings();
 });
 

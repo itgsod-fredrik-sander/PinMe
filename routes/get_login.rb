@@ -3,6 +3,7 @@ module Get
 
     def self.registered(app)
       app.get '/login' do 
+        @users_registered = User.all.size
         slim :login
       end
     end

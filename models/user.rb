@@ -20,5 +20,9 @@ class User
     @first_name + ' ' + @last_name
   end
 
+  def self.authenticate(username, password)
+    user = User.first(:username => username)
+    user && user.password == password
+  end
 end
 

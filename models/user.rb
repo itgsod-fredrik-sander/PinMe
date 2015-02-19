@@ -8,6 +8,7 @@ class User
   property :password, BCryptHash
   property :email, String, :unique => true
   property :premium, Boolean
+  property :profile_picture, String
 
   validates_length_of :username, :within => 3...30
 

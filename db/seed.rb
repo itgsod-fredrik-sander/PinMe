@@ -49,15 +49,15 @@ class Seed
    def self.users
     users = [
         { first_name: "Refugio", last_name: "Hertzog", username: "test",
-          password:"test1", email: "test@test.test", premium: true },
+          password:"test1", email: "test@test.test", premium: true, profile_picture: "jdksfn.png" },
         { first_name: "Pontus", last_name: "Lindgren", username: "pontus.lindgren",
-          password:"test1", email: "test@testium.test", premium: true },
+          password:"test1", email: "test@testium.test", premium: true, profile_picture: "fjdskfnsk.png" },
         { first_name: "Lukas", last_name: "Ahlgren", username: "lukasahl",
-          password:"test12", email: "test@testimum.test", premium: false },
+          password:"test12", email: "test@testimum.test", premium: false, profile_picture:"mklknsjd.png" },
         { first_name: "Fredrik", last_name: "Lenton", username: "frellen",
-          password:"test123", email: "test@testiumim.test", premium: true },
+          password:"test123", email: "test@testiumim.test", premium: true, profile_picture:"jdbhsbdv.png" },
         { first_name: "Isobel", last_name: "Storch", username: "boytoy",
-          password:"test1234", email: "test@idontevenknow.anymore", premium: false }
+          password:"test1234", email: "test@idontevenknow.anymore", premium: false, profile_picture:"bubdjsb.png" }
     ]
 
     users.each { |user| User.create(user) }

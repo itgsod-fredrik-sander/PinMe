@@ -13,8 +13,24 @@
 #settings {
   position: fixed;
   top: 25%;
-  height:50%;
   background-color: white;
   z-index: 101;
   visibility: hidden;
 }
+
+#change-email {
+    float: left;
+    margin-right: 10px;
+}
+
+#change-password {
+    float: left;
+    margin-right: 10px;
+}
+
+.confirm-buttons {
+    float: right;
+}
+
+
+

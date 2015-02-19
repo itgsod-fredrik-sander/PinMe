@@ -18,4 +18,5 @@ class App < Sinatra::Base
 
   register Post::New::Clickedpoint
   register Post::Login
+  register Post::Register
 end

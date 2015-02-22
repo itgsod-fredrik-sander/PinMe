@@ -11,3 +11,7 @@
 .dropdown-menu, .dropdown-toggle[aria-expanded='true'] {
   background-color: #313237 !important;
 }
+
+#main-searchbar {
+  margin-left: 27%;
+}

@@ -73,18 +73,18 @@ div id='overlay' class='settings-toggler'
       |Change mail:
       .email
         .input-group id="change-email"
-          input.form-control aria-describedby="basic-addon2" placeholder="Current email" type="email"
+          input.form-control name="new-email" placeholder="Current email" type="email"
         .input-group
-          input.form-control aria-describedby="basic-addon3" placeholder="Change email" type="email"
+          input.form-control name="current-email" placeholder="Change email" type="email"
 
       |Change password:
       .change-password
         .input-group id="change-password"
-          input.form-control aria-describedby="basic-addon2" placeholder="Current password" type="password"
+          input.form-control name="current-password" placeholder="Current password" type="password"
         .input-group id="change-password"
-          input.form-control aria-describedby="basic-addon2" placeholder="New password" type="password"
+          input.form-control name="new-password" placeholder="New password" type="password"
         .input-group
-          input.form-control aria-describedby="basic-addon2" placeholder="Confirm password" type="password"
+          input.form-control name="confirm-password" placeholder="Confirm password" type="password"
 
       |Language:
       .dropdown
@@ -93,9 +93,9 @@ div id='overlay' class='settings-toggler'
           span.caret
         ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
           li role="presentation"
-            a href="#" role="menuitem" tabindex="-1"  English
+            a role="menuitem" tabindex="-1" value="English" English
           li role="presentation"
-            a href="#" role="menuitem" tabindex="-1"  Svenska
+            a role="menuitem" tabindex="-1" value="Svenska" Svenska
 
       |Username color:
       .dropdown
@@ -113,10 +113,10 @@ div id='overlay' class='settings-toggler'
       |Zoom level:
       .zoom-level
         .btn-group aria-label="..." role="group"
-          button.btn.btn-default type="button"  1
-          button.btn.btn-default type="button"  2
-          button.btn.btn-default type="button"  3
-          button.btn.btn-default type="button"  4
+          button.btn.btn-default type="button" name="zoom-level" value="1" 1
+          button.btn.btn-default type="button" name="zoom-level" value="2" 2
+          button.btn.btn-default type="button" name="zoom-level" value="3" 3
+          button.btn.btn-default type="button" name="zoom-level" value="4" 4
 
 
 

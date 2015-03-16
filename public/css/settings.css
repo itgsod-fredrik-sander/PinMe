@@ -16,6 +16,7 @@
   background-color: white;
   z-index: 101;
   visibility: hidden;
+  padding: 0;
 }
 
 #change-email {

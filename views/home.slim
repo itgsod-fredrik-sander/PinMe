@@ -86,17 +86,6 @@ div id='overlay' class='settings-toggler'
         .input-group
           input.form-control name="confirm-password" placeholder="Confirm password" type="password"
 
-      |Language:
-      .dropdown
-        button#dropdownMenu1.btn.btn-default.dropdown-toggle aria-expanded="true" data-toggle="dropdown" type="button"
-          |Swinglish
-          span.caret
-        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
-          li role="presentation"
-            a role="menuitem" tabindex="-1" value="English" English
-          li role="presentation"
-            a role="menuitem" tabindex="-1" value="Svenska" Svenska
-
       |Username color:
       .dropdown
         button#dropdownMenu1.btn.btn-default.dropdown-toggle aria-expanded="true" data-toggle="dropdown" type="button"
@@ -104,11 +93,11 @@ div id='overlay' class='settings-toggler'
           span.caret
         ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
           li role="presentation"
-            a href="#" role="menuitem" tabindex="-1"  Blue
+            a role="menuitem" tabindex="-1" name="color" value="blue" Blue
           li role="presentation"
-            a href="#" role="menuitem" tabindex="-1"  Red
+            a role="menuitem" tabindex="-1" name="color" value="red" Red
           li role="presentation"
-            a href="#" role="menuitem" tabindex="-1"  Green
+            a role="menuitem" tabindex="-1" name="color" value="green" Green
 
       |Zoom level:
       .zoom-level

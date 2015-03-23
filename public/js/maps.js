@@ -128,7 +128,6 @@ function line(map) {
     if (shiftPressed || path.getLength() === 0) {
       path.push(evt.latLng);
       $.post('/new/clickedpoint', {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed});
-      console.log('NEW CLICKED POINT ADDED')
 
       if(path.getLength() === 1) {
         poly.setPath(path);
@@ -146,7 +145,6 @@ function line(map) {
 
         if (cpStatus) {
           $.post('/new/clickedpoint', {'lng': evt.latLng.D, 'lat': evt.latLng.k, 'freeMove': shiftPressed});
-          console.log('CLICKED POINT ADDED 2')
         }
       });
     }
@@ -170,8 +168,6 @@ function loadPath(items, current) {
   if (item.free_move || path.getLength() === 0) {
     path.push(next);
 
-    console.log('PUSHED')
-
     if (path.getLength() === 1) {
       poly.setPath(path);
     }
@@ -186,7 +182,6 @@ function loadPath(items, current) {
           path.push(result.routes[0].overview_path[j]);
         }
 
-        console.log('PUSHED 2')
         loadPath(items, current + 1);
       }
     });
@@ -214,10 +209,9 @@ function createMarker(item, map) {
 }
 
 function buildContentString(item) {
-  return '<div id="content">' + '<h1 id="firstHeading" class="firstHeading"> ' + item.title + '</h1>' +
-  '<div id="bodyContent">'+
+  return '<h1 class="edit"> ' + item.title + '</h1>' +
+  '<div class="edit_area">'+
   '<p>' + item.description + '</p>'+
-  '</div>'+
   '</div>';
 } 
 

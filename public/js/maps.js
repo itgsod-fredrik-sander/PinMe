@@ -209,8 +209,8 @@ function createMarker(item, map) {
 }
 
 function buildContentString(item) {
-  return '<h1 class="edit"> ' + item.title + '</h1>' +
-  '<div class="edit_area">'+
+  return '<h1 class="infoHeading"> ' + item.title + '</h1>' +
+  '<div class="infoBody">'+
   '<p>' + item.description + '</p>'+
   '</div>';
 } 

@@ -4,7 +4,7 @@ module Post
     def self.registered(app)
       app.post '/login' do 
         if User.authenticate(params['username'], params['password'])
-          session[:user_id] = User.first(:username => 'username')
+          session[:user_id] = User.first(:username => params['username']).id
           redirect '/home'
         end
       end

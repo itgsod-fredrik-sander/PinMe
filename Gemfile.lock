@@ -11,6 +11,8 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
+    celluloid (0.16.0)
+      timers (~> 4.0.0)
     childprocess (0.5.5)
       ffi (~> 1.0, >= 1.0.11)
     data_mapper (1.2.0)
@@ -37,6 +39,9 @@ GEM
       dm-core (~> 1.2.0)
     dm-migrations (1.2.0)
       dm-core (~> 1.2.0)
+    dm-postgres-adapter (1.2.0)
+      dm-do-adapter (~> 1.2.0)
+      do_postgres (~> 0.10.6)
     dm-serializer (1.2.2)
       dm-core (~> 1.2.0)
       fastercsv (~> 1.5)
@@ -60,12 +65,19 @@ GEM
       uuidtools (~> 2.1)
     dm-validations (1.2.0)
       dm-core (~> 1.2.0)
+    do_postgres (0.10.14)
+      data_objects (= 0.10.14)
     do_sqlite3 (0.10.14)
       data_objects (= 0.10.14)
     fastercsv (1.5.5)
     ffi (1.9.6)
+    hitimes (1.2.2)
     json (1.8.2)
     json_pure (1.8.2)
+    listen (2.9.0)
+      celluloid (>= 0.15.2)
+      rb-fsevent (>= 0.9.3)
+      rb-inotify (>= 0.9)
     mime-types (2.4.3)
     mini_portile (0.6.2)
     multi_json (1.10.1)
@@ -76,6 +88,14 @@ GEM
       rack
     rack-test (0.6.3)
       rack (>= 1.0)
+    racksh (1.0.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5)
+    rb-fsevent (0.9.4)
+    rb-inotify (0.9.5)
+      ffi (>= 0.5.0)
+    rerun (0.10.0)
+      listen (~> 2.7, >= 2.7.3)
     rspec (3.1.0)
       rspec-core (~> 3.1.0)
       rspec-expectations (~> 3.1.0)
@@ -106,6 +126,8 @@ GEM
     stringex (1.5.1)
     temple (0.7.5)
     tilt (1.4.1)
+    timers (4.0.1)
+      hitimes
     uuidtools (2.1.5)
     websocket (1.2.1)
     xpath (2.0.0)
@@ -115,11 +137,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bcrypt
   capybara
   data_mapper
+  dm-postgres-adapter
   dm-sqlite-adapter
-  json
+  racksh
+  rerun
   rspec
   selenium-webdriver
   sinatra

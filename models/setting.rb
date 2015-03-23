@@ -3,7 +3,7 @@ class Setting
 
   property :id, Serial #TODO: Should not have ID, fix later alligator
   property :zoom_level, Integer
-  property :language, String
 
+  has n, :colors
   belongs_to :user
 end

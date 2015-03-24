@@ -5,6 +5,7 @@ module Get
       app.get '/home' do 
         session[:user_id] = 1
         @user = User.get(session[:user_id])
+        @colors = Color.all
         slim :home
       end
     end

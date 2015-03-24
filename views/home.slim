@@ -87,9 +87,11 @@ div id='overlay' class='settings-toggler'
 
       |Username color:
       select.form-control name="color"
-        option value="1" blue
-        option value="2" red
-        option value="3" green
+        - for color in @colors
+          - if color.id == @user.setting.color.id
+            option selected="" value="#{color.id}"  #{color.name}
+          - else
+            option value="#{color.id}" #{color.name}
 
       |Zoom level:
       select.form-control name="zoom-level"

@@ -14,6 +14,7 @@ class App < Sinatra::Base
 
   register Get::Tourdata
   register Get::Lines
+  register Get::Profilepage
 
   register Post::New::Clickedpoint
   register Post::Login

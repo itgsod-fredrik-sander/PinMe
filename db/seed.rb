@@ -77,9 +77,9 @@ class Seed
 
   def self.colors
     colors = [
-        {color_name: "blue",color_hex: "#0000FF"},
-        {color_name: "red",color_hex: "#FF0000"},
-        {color_name: "green",color_hex: "#008000"}
+        {name: "Blue",hex: "#0000FF"},
+        {name: "Red",hex: "#FF0000"},
+        {name: "Green",hex: "#008000"}
     ]
     colors.each {|color| Color.create(color)}
   end

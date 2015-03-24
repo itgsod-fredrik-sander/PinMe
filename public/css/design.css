@@ -7,3 +7,12 @@ html, body, #map-canvas {
 body {
   background-color: #313237;
 }
+
+#background {
+    background-color: #ffffff;
+    width :100%;
+    height: 100%;
+}
+#profilepic {
+    height: 80px;
+}

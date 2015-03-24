@@ -23,8 +23,6 @@ function toggleSettings() {
 }
 
 $('#settings-submit').click(function(e) {
-  console.log('event fired')
-
   var data = {
     'current-password': $('#current-password').val(),
     'new-password': $('#new-password').val(),

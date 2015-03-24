@@ -5,5 +5,5 @@ class Color
   property :color_name, String
   property :color_hex, String
 
-  belongs_to :setting
+  has n, :settings
 end

@@ -27,10 +27,10 @@ class Seed
 
   def self.settings
     settings = [
-        {zoom_level: 6, user_id: 1 },
-        {zoom_level: 3, user_id: 2 },
-        {zoom_level: 5, user_id: 3 },
-        {zoom_level: 2, user_id: 4 }
+        {zoom_level: 3, user_id: 1, color_id:1 },
+        {zoom_level: 3, user_id: 2, color_id:2 },
+        {zoom_level: 1 , user_id: 3, color_id:3 },
+        {zoom_level: 2, user_id: 4, color_id:2 }
     ]
 
     settings.each {|setting| Setting.create(setting)}
@@ -77,10 +77,11 @@ class Seed
 
   def self.colors
     colors = [
-        {color_name: "blue",color_hex: "#0000FF",settings_id: 1},
-        {color_name: "red",color_hex: "#FF0000",settings_id: 1},
-        {color_name: "green",color_hex: "#008000", settings_id: 1}
+        {color_name: "blue",color_hex: "#0000FF"},
+        {color_name: "red",color_hex: "#FF0000"},
+        {color_name: "green",color_hex: "#008000"}
     ]
+    colors.each {|color| Color.create(color)}
   end
 
 end

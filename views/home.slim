@@ -67,7 +67,7 @@ div id='overlay' class='settings-toggler'
 
 .panel.panel-default.col-md-8.col-md-offset-2 id='settings'
   .panel-heading Settings
-  form
+  form action="/settings" method="POST"
     .panel-body
 
       |Change mail:
@@ -87,26 +87,30 @@ div id='overlay' class='settings-toggler'
           input.form-control name="confirm-password" placeholder="Confirm password" type="password"
 
       |Username color:
-      .dropdown
-        button#dropdownMenu1.btn.btn-default.dropdown-toggle aria-expanded="true" data-toggle="dropdown" type="button"
-          |White
-          span.caret
-        ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
-          li role="presentation"
-            a role="menuitem" tabindex="-1" name="color" value="blue" Blue
-          li role="presentation"
-            a role="menuitem" tabindex="-1" name="color" value="red" Red
-          li role="presentation"
-            a role="menuitem" tabindex="-1" name="color" value="green" Green
+      /.dropdown
+      /  button#dropdownMenu1.btn.btn-default.dropdown-toggle aria-expanded="true" data-toggle="dropdown" type="button" name="color"
+      /    |White
+      /    span.caret
+      /  ul.dropdown-menu aria-labelledby="dropdownMenu1" role="menu"
+      /    li role="presentation"
+      /      a role="menuitem" tabindex="-1" value="blue" Blue
+      /    li role="presentation"
+      /      a role="menuitem" tabindex="-1" value="red" Red
+      /    li role="presentation"
+      /      a role="menuitem" tabindex="-1" value="green" Green
+
+      select.form-control name="color"
+        option value="blue" blue
+        option value="red" red
+        option value="green" green
+
 
       |Zoom level:
-      .zoom-level
-        .btn-group aria-label="..." role="group"
-          button.btn.btn-default type="button" name="zoom-level" value="1" 1
-          button.btn.btn-default type="button" name="zoom-level" value="2" 2
-          button.btn.btn-default type="button" name="zoom-level" value="3" 3
-          button.btn.btn-default type="button" name="zoom-level" value="4" 4
-
+      select.form-control name="zoom-level"
+        option value="1" 1
+        option value="2" 2
+        option value="3" 3
+        option value="4" 4
 
 
       .confirm-buttons

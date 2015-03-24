@@ -8,9 +8,6 @@ module Post
         current_email, new_email = params['current-email'], params['new-email']
         color_id, zoom_level = params['color'], params['zoom-level']
 
-        puts "################"
-        puts params
-
         User.change_email(user_id, current_password, current_email, new_email)
         User.change_password(user_id, current_password, new_password, confirm_password)
         User.set_zoom_level(user_id, zoom_level)

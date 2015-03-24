@@ -20,7 +20,7 @@ nav class="navbar navbar-inverse"
           input type="text" class="form-control" placeholder="Search" id='id' name='name'
         button type="submit" class="btn btn-default" id='search-tour' Submit
 
-      ul class="nav navbar-nav navbar-right"
+      ul class="nav navbar-nav navbar-right collapsing-element"
         li class="dropdown"
           a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"
             span class="caret"
@@ -31,11 +31,10 @@ nav class="navbar navbar-inverse"
               a class='settings-toggler' href="#" Settings
             li
               a href="#" Logout
-      p class="navbar-text navbar-right"
+      p class="navbar-text navbar-right collapsing-element"
         a href="#" class="navbar-link" #{@user.username}
-      a class="navbar-brand navbar-right" href="#"
+      a class="navbar-brand navbar-right collapsing-element" href="#"
         i.fa.fa-user
-
 
 div id='menu' class='col-md-2'
   li role='presentation'

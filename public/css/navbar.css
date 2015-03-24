@@ -11,3 +11,18 @@
 .dropdown-menu, .dropdown-toggle[aria-expanded='true'] {
   background-color: #313237 !important;
 }
+
+@media(max-width: 768px) {
+  .navbar-collapse  > .collapsing-element {
+    float: left;
+    width: 15%;
+  }
+
+  .navbar-brand {
+    padding-left: 0;
+  }
+
+  .collapsing-element > a {
+    margin-left: 25.8%;
+  }
+}

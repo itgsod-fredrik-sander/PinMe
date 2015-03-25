@@ -3,8 +3,7 @@ module Get
 
     def self.registered(app)
       app.get '/home' do 
-        session[:user_id] = 1
-        @user = User.get(session[:user_id])
+        @user = session[:user]
         @colors = Color.all
         slim :home
       end

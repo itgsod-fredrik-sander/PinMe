@@ -11,6 +11,7 @@ class App < Sinatra::Base
   register Get::Root
   register Get::Home
   register Get::Login
+  register Get::Logout
 
   register Get::Tourdata
   register Get::Lines

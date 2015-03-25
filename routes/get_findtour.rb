@@ -1,5 +1,5 @@
 module Get
-  module Home
+  module Findtour
 
     def self.registered(app)
         app.get '/findtour' do

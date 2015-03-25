@@ -9,7 +9,7 @@ module Post
         
         user = User.create(user_data)
 
-        settings_data = {zoom_level: 4, language: "English", user: user}
+        settings_data = {zoom_level: 4, user: user, color_id: 1}
         Setting.create(settings_data)
 
         session[:user_id] = user.id

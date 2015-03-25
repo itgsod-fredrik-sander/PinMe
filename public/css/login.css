@@ -76,3 +76,9 @@
   float:left;
   color:#D1D1D3;
 }
+
+.flash-error {
+  background-color: #C83F38;
+  color:white;
+  text-align:center;
+}

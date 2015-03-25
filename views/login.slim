@@ -52,3 +52,6 @@ div class="center-block main-block"
         p class="text-center" Join PinMe today!
     div class="col-lg-10 col-lg-offset-1"
       button id="create-account-button" type="submit" class="btn btn-default" Sign up!
+  -if flash[:error]
+    div class='flash-error col-md-12'
+      p #{flash[:error]}

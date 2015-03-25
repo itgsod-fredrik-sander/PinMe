@@ -3,11 +3,12 @@ module Post
 
     def self.registered(app)
       app.post '/login' do
-        user = User.first(username:params['username'])
-        flash[:error] = "test"
-        if user.authenticate(params['password'])
+        if User.authenticate(params['username'], params['password'])
           session[:user_id] = user.id
           redirect '/home'
+        else
+          flash[:error] = "Invalid account credentials, try again"
+          redirect '/login'
         end
       end
     end

@@ -10,7 +10,7 @@ gem 'sinatra-partial'
 gem 'data_mapper'
 gem 'slim'
 gem 'tilt', '~> 1.4.1' #temporary fix
-gem 'racksh-flash'
+gem 'sinatra-flash'
 
 # Used during local development (on your own machine)
 group :development do

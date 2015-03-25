@@ -3,7 +3,7 @@ module Get
 
     def self.registered(app)
       app.get '/' do
-        slim :root
+        redirect '/login'
       end
     end
 

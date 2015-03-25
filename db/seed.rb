@@ -39,10 +39,23 @@ class Seed
 
   def self.tours
     tours = [
-        { user_id: 4, name: "Rtour1", description: "stockholm.tour", rating: 2.5 },
-        { user_id: 5, name: "Rtour2", description: "best tour ever", rating: 4.5 },
-        { user_id: 5, name: "Rtour3", description: "lindas beutiful tour", rating: 1.5 },
-        { user_id: 1, name: "Rtour4", description: "beer run in japan", rating: 2.5 }
+        { user_id: 4, name: "PeX tour of Stocholm", description: "A tour of the city of Stockholm", rating: 2.5 },
+        { user_id: 5, name: "Organized tour of SharpFruits", description: "Best tour ever", rating: 4.5 },
+        { user_id: 5, name: "Lindas amazing tour", description: "A tour of Paris", rating: 1.5 },
+        { user_id: 1, name: "Chugchug with JD&MK", description: "Beer run in Japan", rating: 2.5 },
+        { user_id: 4, name: "Tour of New york with a proffesional guide", description: "New york is a city...", rating: 2.5 },
+        { user_id: 5, name: "A tour of my small city!", description: "My city is located outside of Madrid.", rating: 4.5 },
+        { user_id: 5, name: "Mits tour of Sexstores in Stockholm", description: "I know all the sexstores and I will show you the best ones.", rating: 1.5 },
+        { user_id: 1, name: "Tour of London", description: "Best tour when you want to take a walk", rating: 2.5 },
+        { user_id: 4, name: "Freds nerd tour of LA", description: "Perfect when you want to find nerdy things in LA", rating: 2.5 },
+        { user_id: 5, name: "Andres tour of trolling", description: "Go this tour and prank your friends.", rating: 4.5 },
+        { user_id: 5, name: "Magic tour", description: "A tour that revolves around magic, preformers and stores all in one tour.", rating: 1.5 },
+        { user_id: 1, name: "Pedros tour of cat café", description: "Cat café in Japan", rating: 2.5 },
+        { user_id: 4, name: "Island hopping in Philippines", description: "A tour of infamous islands of the Philippines", rating: 2.5 },
+        { user_id: 5, name: "Greek Myths tour", description: "A tour of Greek myths", rating: 4.5 },
+        { user_id: 5, name: "Pizza tour", description: "Pizzas in Italy is the best and these are the best pizza places in Italy", rating: 1.5 },
+        { user_id: 1, name: "Beijing hidden beauty", description: "Beijing has a few secrets let me show you!", rating: 2.5 },
+
     ]
 
     tours.each { |tour| Tour.create(tour) }

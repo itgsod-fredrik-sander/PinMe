@@ -9,6 +9,7 @@ class Tour
   has n, :lines
   has n, :pins
   has n, :savedtours
+  has n, :tags
   has n, :users, :through => :savedtours
   belongs_to :user
 

@@ -6,6 +6,7 @@ class Seed
     users
     savedtours
     colors
+    tags
   end
 
 
@@ -82,6 +83,15 @@ class Seed
         { name: "Green", hex: "#008000" }
     ]
     colors.each { |color| Color.create(color) }
+  end
+
+  def self.tags
+    tags = [
+        {name: "USA", tour_id: 1},
+        {name: "Japan", tour_id: 1},
+        {name: "Coolest", tour_id: 3}
+    ]
+    tags.each {|tag| Tag.create(tag)}
   end
 
 end

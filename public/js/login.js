@@ -4,8 +4,6 @@ $(document).ready(function() {
   $("#create-rectangle").hide();
 
   $("#register-button").click(function() {
-    console.log(registerRectVisible);
-
     if (!registerRectVisible)
     {
       $("#register-rectangle").fadeIn();
@@ -20,8 +18,6 @@ $(document).ready(function() {
       $("#register-button").html("Register");
       registerRectVisible = false;
     }
-
-    console.log("shown");
   })
 
   $("#create-account-button").click(function() {

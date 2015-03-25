@@ -27,13 +27,13 @@ class Seed
 
   def self.settings
     settings = [
-        {zoom_level: 3, user_id: 1, color_id:1 },
-        {zoom_level: 3, user_id: 2, color_id:2 },
-        {zoom_level: 1 , user_id: 3, color_id:3 },
-        {zoom_level: 2, user_id: 4, color_id:2 }
+        { zoom_level: 3, user_id: 1, color_id:1 },
+        { zoom_level: 3, user_id: 2, color_id:2 },
+        { zoom_level: 1 , user_id: 3, color_id:3 },
+        { zoom_level: 2, user_id: 4, color_id:2 }
     ]
 
-    settings.each {|setting| Setting.create(setting)}
+    settings.each { |setting| Setting.create(setting) }
   end
 
   def self.tours
@@ -66,10 +66,10 @@ class Seed
 
   def self.savedtours
     savedtours = [
-        {user_id: 1,tour_id: 1 },
-        {user_id: 2,tour_id: 2 },
-        {user_id: 2,tour_id: 3 },
-        {user_id: 3,tour_id: 3 }
+        { user_id: 1, tour_id: 1 },
+        { user_id: 2, tour_id: 2 },
+        { user_id: 2, tour_id: 3 },
+        { user_id: 3, tour_id: 3 }
     ]
 
     savedtours.each { |savedtour| Savedtour.create(savedtour) }
@@ -77,11 +77,11 @@ class Seed
 
   def self.colors
     colors = [
-        {name: "Blue",hex: "#0000FF"},
-        {name: "Red",hex: "#FF0000"},
-        {name: "Green",hex: "#008000"}
+        { name: "Blue", hex: "#0000FF" },
+        { name: "Red", hex: "#FF0000" },
+        { name: "Green", hex: "#008000" }
     ]
-    colors.each {|color| Color.create(color)}
+    colors.each { |color| Color.create(color) }
   end
 
 end

@@ -7,7 +7,7 @@
   z-index: 100;
   background-color: black;
   opacity: 0.5;
-  visibility: hidden;
+  display: none;
 }
 
 #settings {
@@ -15,7 +15,7 @@
   top: 25%;
   background-color: white;
   z-index: 101;
-  visibility: hidden;
+  display: none;
   padding: 0;
 }
 

@@ -26,7 +26,7 @@ nav class="navbar navbar-inverse"
             span class="caret"
           ul class="dropdown-menu" role="menu"
             li
-              a href="#" Profile
+              a id='navbar-profile' href="#" Profile
             li
               a class='settings-toggler' href="#" Settings
             li
@@ -38,7 +38,7 @@ nav class="navbar navbar-inverse"
 
 div id='menu' class='col-md-2'
   li role='presentation'
-    a class='menutitle turquoise-border-b' role='menuitem' tabindex='-1' href='#'
+    a class='menutitle turquoise-border-b' role='menuitem' tabindex='-1' href='#' id='menu-map'
       i class='fa fa-bookmark' #{' My Map'}
     .turquoise-border
     a role='menuitem' tabindex='-1' href='#' View Tours
@@ -58,9 +58,16 @@ div id='menu' class='col-md-2'
     .turquoise-border 
     a role='menuitem' tabindex='-1' href='/findtour' Search
     .turquoise-border 
-    a class='menutitle' role='menuitem' tabindex='0' href='#'
-      i class='fa fa-picture-o' #{' Upload'}
+    
 div id='map-canvas' class='col-md-12'
+div id='profile'
+  div id="background"
+  div id="profilepic" class="col-md-4"
+    img src="/images/profile_placeholder.png"
+  div class="page-header" id="informationbox" class="col-md-4"
+    h1
+      | #{@user.name} 
+      small Registered: 2014-03-21
 
 div id='overlay' class='settings-toggler'
 

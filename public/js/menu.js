@@ -11,17 +11,44 @@ $('#dropdown-menu').click(function() {
 });
 
 $('.settings-toggler').click(function() {
-  toggleSettings();
+  toggleVisibility($('#settings'));
+  toggleVisibility($('#overlay'));
 });
 
-function toggleSettings() {
-  var visibility = $('#settings').css('visibility');
-  var new_state = visibility == 'visible' ? 'hidden' : 'visible';
+$('#navbar-profile').click(function() {
+  toggleVisibility($('#profile'));
+  toggleVisibility($('#map-canvas'))
+});
 
-  $('#overlay').css('visibility', new_state)
-  $('#settings').css('visibility', new_state);
+$('#menu-map').click(function() {
+  hideAll();
+  toggleVisibility($('#map-canvas'));
+});
+
+
+// Hides all the elements in the elements array
+function hideAll() {
+  elements = ['#settings', '#overlay', '#profile', '#map-canvas'];
+
+  for (i = 0; i < elements.length; i++) {
+    hideElement($(elements[i]));
+  }
 }
 
+// Hides the element
+function hideElement(element) {
+  element.css('display', 'none')
+}
+
+// Toggles visibility
+function toggleVisibility(element) {
+  var display = element.css('display');
+  var new_state = display == 'block' ? 'none' : 'block';
+
+  element.css('display', new_state);
+}
+
+// Submits data to server without redirecting
 $('#settings-submit').click(function(e) {
   var data = {
     'current-password': $('#current-password').val(),

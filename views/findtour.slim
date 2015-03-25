@@ -5,13 +5,12 @@
       .thumbnail
         img.img-responsive alt="" src="http://placekitten.com/g/500/500" /
         .caption
-          h3 #{tour.name}
-          p #{tour.description}
+          h3.titlebox #{tour.name}
+          p.descbox #{tour.description}
           p #{tour.rating}
-          p
-            a.btn.btn-primary.btn-block href="/tour/#{tour.id}"
-              i.icon-link.icon-x2
-              | Read more
+        a.btn.btn-primary.btn-block href="/tour/#{tour.id}"
+          i.icon-link.icon-x2
+          | Read more
 
 .confirm-buttons
   form action="/findtour/#{@sidenumber.to_i - 1}"

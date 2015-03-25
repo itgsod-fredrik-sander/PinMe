@@ -1,0 +1,17 @@
+.caption{
+    height: 200px;
+}
+
+.titlebox{
+    height: 56px;
+    overflow: hidden;
+}
+
+.descbox{
+    height: 55px;
+    overflow: scroll;
+}
+
+.confirm-buttons form{
+    float: left;
+}

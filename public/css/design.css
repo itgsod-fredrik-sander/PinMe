@@ -20,5 +20,27 @@ body {
 
 #profile {
   display: none;
-  color: white;
+  color: black;
+  margin-top: 10px;
+}
+
+#profile-summary{
+  padding: 0;
+  background-color: white;
+}
+
+#profile-summary img {
+  width: 100%;
+}
+
+#profile-summary h4 {
+  margin-top: 0px;
+}
+
+#profile-summary h2 {
+  margin-bottom: 4px;
+}
+
+#informationbox {
+  margin-top: 0;
 }

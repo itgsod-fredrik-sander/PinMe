@@ -25,7 +25,7 @@ end
 group :production do
 
   # Use Postgresql
-  gem 'dm-postgres-adapter', group: :production
+ # gem 'dm-postgres-adapter', group: :production
 
 end
 

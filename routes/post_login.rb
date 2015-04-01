@@ -4,7 +4,7 @@ module Post
     def self.registered(app)
       app.post '/login' do
         if User.authenticate(params['username'], params['password'])
-          session[:user] = User.first(username: params['username'])
+          session[:user_id] = User.first(username: params['username']).id
           redirect '/home'
         else
           flash[:error] = "Invalid account credentials, try again"

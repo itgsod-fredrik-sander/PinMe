@@ -5,7 +5,7 @@ module Get
 
     def self.registered(app)
       app.get '/logout' do 
-        session[:user] = nil
+        session[:user_id] = nil
         redirect '/'
       end
     end

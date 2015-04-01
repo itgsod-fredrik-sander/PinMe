@@ -2,15 +2,17 @@ class User
   include DataMapper::Resource
 
   property :id, Serial
-  property :first_name, String
-  property :last_name, String
+  property :first_name, String, :required => true
+  property :last_name, String, :required => true
   property :username, String, :unique => true
-  property :password, BCryptHash
-  property :email, String, :unique => true
+  property :password, BCryptHash, :required => true
+  property :email, String, :unique => true, :required => true
   property :premium, Boolean
   property :profile_picture, String
 
-  validates_length_of :username, :within => 3...30
+  validates_length_of :username, :within => 3...30, :message => 'Username must be between 3-30 characters'
+  validates_length_of :password, :min => 3, :message => 'Password must be 3 characters or longer'
+  validates_format_of :email, :as => :email_address, :message => 'Not a email'
 
   has 1, :setting
   has n, :tours

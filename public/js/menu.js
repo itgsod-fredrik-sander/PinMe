@@ -25,6 +25,25 @@ $('#menu-map').click(function() {
   toggleVisibility($('#map-canvas'));
 });
 
+// Submits data to server without redirecting
+$('#settings-submit').click(function(e) {
+  var data = {
+    'current-password': $('#current-password').val(),
+    'new-password': $('#new-password').val(),
+    'confirm-password': $('#new-password').val(),
+    'current-email': $('#current-email').val(),
+    'new-email': $('#new-email').val(),
+    'color': $('#color').val(),
+    'zoom-level': $('#zoom-level').val()
+  } 
+
+  $.post('/settings', data); 
+  e.preventDefault();
+  
+  toggleVisibility($('#settings'));
+  toggleVisibility($('#overlay'));
+});
+
 
 // Hides all the elements in the elements array
 function hideAll() {
@@ -47,20 +66,3 @@ function toggleVisibility(element) {
 
   element.css('display', new_state);
 }
-
-// Submits data to server without redirecting
-$('#settings-submit').click(function(e) {
-  var data = {
-    'current-password': $('#current-password').val(),
-    'new-password': $('#new-password').val(),
-    'confirm-password': $('#new-password').val(),
-    'current-email': $('#current-email').val(),
-    'new-email': $('#new-email').val(),
-    'color': $('#color').val(),
-    'zoom-level': $('#zoom-level').val()
-  } 
-
-  $.post('/settings', data); 
-  e.preventDefault();
-  toggleSettings();
-});

@@ -21,8 +21,11 @@ class User
     @first_name + ' ' + @last_name
   end
 
-  def update_settings(params)
+  def update_settings(params) 
     change_email(params['current-password'], params['current-email'], params['new-email'])
+    change_password(params['current-password'], params['new-password'], params['confirm-password'])
+    change_zoomlevel(params['zoom-level'])
+    change_color(params['color'])
   end
 
   def self.authenticate(username, password)
@@ -38,24 +41,21 @@ class User
   end
 
   def change_password(current_password, new_password, confirm_password)
-    user = User.get(user_id.to_i)
-    if user.password == current_password && confirm_password == new_password
-      user.update(password: new_password)
+    if self.password == current_password && confirm_password == new_password
+      self.update(password: new_password)
     end
   end
 
-  def set_zoom_level(zoom_level)
+  def change_zoomlevel(zoom_level)
     zoom_level = zoom_level.to_i
     if zoom_level > 0 && zoom_level < 5
-      user = User.get(user_id.to_i)
-      user.setting.update(zoom_level: zoom_level)
+      self.setting.update(zoom_level: zoom_level)
     end
   end
 
-  def set_color(color_id)
+  def change_color(color_id)
     if Color.first(id: color_id)
-      user = User.get(user_id.to_i)
-      user.setting.update(color_id: color_id)
+      self.setting.update(color_id: color_id)
     end
   end
 end

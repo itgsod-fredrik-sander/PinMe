@@ -22,14 +22,8 @@ class User
   end
 
   def update_settings(params) 
-    if self.email == params['current-email'] && self.password == params['current-password']
-      change_email(params['new-email'])
-    end
-
-    if self.password == params['current-password']
-      change_password(params['new-password'])
-    end
-
+    change_email(params)
+    change_password(params['new-password'])
     change_zoomlevel(params['zoom-level'])
     change_color(params['color'])
   end
@@ -40,12 +34,16 @@ class User
   end
 
   private
-  def change_email(new_email)
-    self.update(email: new_email)
+  def change_email(params)
+    if self.email == params['current-email'] && self.password == params['current-password']
+      self.update(email: params['new_email'])
+    end
   end
 
   def change_password(new_password)
-    self.update(password: new_password)
+    if self.password == params['current-password']
+      self.update(password: params['new_password'])
+    end
   end
 
   def change_zoomlevel(zoom_level)

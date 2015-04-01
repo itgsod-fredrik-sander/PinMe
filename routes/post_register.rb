@@ -55,7 +55,8 @@ module Post
           settings_data = {zoom_level: 4, user: user, color_id: 1}
           Setting.create(settings_data)
 
-          session[:user] = User.first(username: user.username)
+          session[:user_id] = User.first(username: user.username).id
+
           redirect '/home'
         else
           redirect '/login'

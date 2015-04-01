@@ -51,10 +51,11 @@ module Post
         if registration_status
           user_data.merge!(premium: false)
           user = User.create(user_data)
+
           settings_data = {zoom_level: 4, user: user, color_id: 1}
           Setting.create(settings_data)
 
-          session[:user] = user
+          session[:user] = User.first(username: user.username)
           redirect '/home'
         else
           redirect '/login'

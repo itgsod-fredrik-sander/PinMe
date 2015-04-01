@@ -3,13 +3,14 @@ module Get
 
     def self.registered(app)
       app.get '/home' do
-        unless session[:user]
+        unless session[:user_id]
           flash[:error] = 'You must sign in'
           redirect '/login'
         end
-        #@user = User.get(1)
-        @user = session[:user]
+
+        @user = User.get(session[:user_id])
         @colors = Color.all
+        
         slim :home
       end
     end

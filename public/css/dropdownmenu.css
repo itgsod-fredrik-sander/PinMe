@@ -1,19 +1,19 @@
 #dropdown-menu {
-  background-color: #313237;
+  background-color:#313237;
 }
 
 #menu {
-  background-color: #313237;
-  margin-top: 10px;
-  display: none;
+  background-color:#323232;
+  padding-top:15px;
+  height:100%;
+  display:none;
+  list-style-type:none;
 }
 
 #dropdown-menu {
   margin-top:7px;
 }
-li[role="presentation"] {
-  text-align: center;
-}
+
 .dropdown-menu li a, #menu li a {
   color:white;
   margin-top:0;
@@ -21,33 +21,29 @@ li[role="presentation"] {
 }
 
 .dropdown-menu li a:hover, #menu li a:hover {
-  background-color: #313237;
-  color: #00D6D8;
-  text-decoration: none;
+  background-color:#293846;
+  color:white;
+  text-decoration:none;
 }
 
 .dropdown-menu li a {
-  padding-bottom: 7px;
-  padding-top: 7px;
+  padding-bottom:7px;
+  padding-top:7px;
 }
 
 .turquoise-border {
-    content: "";
-    height: 1px;
-    background-image: radial-gradient(#00D6D8, #313237), radial-gradient(#00D6D8, #313237);
-    background-position: 0, 100%, 0, 100%;
-    margin-bottom: 12.5px;
-    margin-top: 12.5px;
-}
-
-#menu .menutitle {
-  font-size: 19px;
+    content:"";
+    height:1px;
+    background-image:radial-gradient(#00D6D8, #313237), radial-gradient(#00D6D8, #313237);
+    background-position:0, 100%, 0, 100%;
+    margin-bottom:12.5px;
+    margin-top:12.5px;
 }
 
 .fa-bars:hover {
-  color: #00D6D8;
+  color:white;
 }
 
 .fa-bars {
-  color: white;
+  color:white;
 }

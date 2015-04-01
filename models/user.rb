@@ -21,26 +21,31 @@ class User
     @first_name + ' ' + @last_name
   end
 
+  def update_settings
+      
+  end
+
   def self.authenticate(username, password)
     user = User.first(:username => username)
     user && user.password == password
   end
 
-  def self.change_email(user_id, password, current_email, new_email)
+  private
+  def change_email(user_id, password, current_email, new_email)
     user = User.get(user_id.to_i)
     if user.password == password && user.email == current_email
       user.update(email: new_email)
     end
   end
 
-  def self.change_password(user_id, current_password, new_password, confirm_password)
+  def change_password(user_id, current_password, new_password, confirm_password)
     user = User.get(user_id.to_i)
     if user.password == current_password && confirm_password == new_password
       user.update(password: new_password)
     end
   end
 
-  def self.set_zoom_level(user_id, zoom_level)
+  def set_zoom_level(user_id, zoom_level)
     zoom_level = zoom_level.to_i
     if zoom_level > 0 && zoom_level < 5
       user = User.get(user_id.to_i)
@@ -48,13 +53,11 @@ class User
     end
   end
 
-  def self.set_color(user_id, color_id)
+  def set_color(user_id, color_id)
     if Color.first(id: color_id)
       user = User.get(user_id.to_i)
       user.setting.update(color_id: color_id)
     end
   end
-
-
 end
 

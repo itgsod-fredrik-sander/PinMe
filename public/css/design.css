@@ -1,3 +1,5 @@
+/* General CSS */
+
 * {
   font-family: 'Open Sans', sans-serif;
 }
@@ -21,6 +23,80 @@ body {
 .hidden {
   visibility: hidden;
 }
+
+/* Dropdownmenu */
+
+#dropdown-menu {
+  background-color:#313237;
+}
+
+#menu {
+  background-color:#323232;
+  padding-top:15px;
+  height:100%;
+  display:none;
+  list-style-type:none;
+}
+
+#dropdown-menu {
+  margin-top:7px;
+}
+
+.dropdown-menu li a, #menu li a {
+  color:white;
+  margin-top:0;
+  margin-bottom:0;
+}
+
+.dropdown-menu li a:hover, #menu li a:hover {
+  background-color:#293846;
+  color:white;
+  text-decoration:none;
+}
+
+.dropdown-menu li a {
+  padding-bottom:7px;
+  padding-top:7px;
+}
+
+.turquoise-border {
+    content:"";
+    height:1px;
+    background-image:radial-gradient(#00D6D8, #313237), radial-gradient(#00D6D8, #313237);
+    background-position:0, 100%, 0, 100%;
+    margin-bottom:12.5px;
+    margin-top:12.5px;
+}
+
+.fa-bars:hover {
+  color:white;
+}
+
+.fa-bars {
+  color:white;
+}
+
+/* Findtour */
+
+.caption{
+    height: 200px;
+}
+
+.titlebox{
+    height: 56px;
+    overflow: hidden;
+}
+
+.descbox{
+    height: 55px;
+    overflow: scroll;
+}
+
+.confirm-buttons form{
+    float: left;
+}
+
+/* Profile */
 
 #profile {
   display: none;
@@ -48,3 +124,161 @@ body {
 #informationbox {
   margin-top: 0;
 }
+
+/* Login */
+#login-rectangle {
+  width: 65%;
+  height: 250px;
+  background-color: #43464B;
+  float:left;
+}
+
+#status-rectangle {
+  width: 35%;
+  height: 250px;
+  background-color: #3B3E43;
+  float:left;
+  color:#D1D1D3;
+}
+
+.main-block {
+  margin-top: 150px;
+  width: 40%;
+}
+
+#status-rectangle #info {
+  margin-top: 37px;
+}
+
+#login-button {
+  margin-top: 40px;
+  background-color: #11ABB7;
+  color: white;
+  border: 0px;
+  width: 100%;
+}
+
+#register-button {
+  margin-top: 68px;
+  background-color: #11ABB7;
+  color: white;
+  border: 0px;
+  width: 100%;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+.visible {
+  visibility: visible;
+}
+
+#register-rectangle .input {
+  margin-bottom: 10px;
+  margin-left: 2%;
+  width: 90%;
+  float:left;
+}
+
+#register-rectangle .login-rectangle {
+  background-color: #51555c;
+}
+
+#register-form {
+  width: 65%;
+}
+
+#create-account-button {
+  margin-top: 40px;
+  background-color: #11ABB7;
+  color: white;
+  border: 0px;
+  width: 100%;
+}
+
+#create-rectangle {
+  width: 35%;
+  height: 250px;
+  background-color: #3B3E43;
+  float:left;
+  color:#D1D1D3;
+}
+
+.flash-error {
+  background-color: #C83F38;
+  color:white;
+  text-align:center;
+}
+
+/* Navbar */
+
+.navbar-inverse {
+  background-color:#313237;
+  border-radius: 0px;
+  margin-bottom:0;
+}
+
+.navbar-inverse .navbar-link {
+  color:white;
+}
+
+.dropdown-menu, .dropdown-toggle[aria-expanded='true'] {
+  background-color: #313237 !important;
+}
+
+@media(max-width: 768px) {
+  .navbar-collapse  > .collapsing-element {
+    float: left;
+    width: 15%;
+  }
+
+  .navbar-brand {
+    padding-left: 0;
+  }
+
+  .collapsing-element > a {
+    margin-left: 25.8%;
+  }
+}
+
+/* Settings */
+
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 100;
+  background-color: black;
+  opacity: 0.5;
+  display: none;
+}
+
+#settings {
+  position: fixed;
+  top: 25%;
+  background-color: white;
+  z-index: 101;
+  display: none;
+  padding: 0;
+}
+
+#change-email {
+    float: left;
+    margin-right: 10px;
+}
+
+#change-password {
+    float: left;
+    margin-right: 10px;
+}
+
+.confirm-buttons {
+    float: right;
+}
+
+
+
+

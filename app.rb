@@ -5,7 +5,6 @@ Dir['./routes/*.rb'].each {|file| require file}
 class App < Sinatra::Base
   enable :sessions
   register Sinatra::Flash
-
   helpers Sinatra::App::Helpers
 
   get '/' do

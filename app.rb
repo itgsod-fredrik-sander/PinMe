@@ -88,4 +88,14 @@ class App < Sinatra::Base
     user = User.get(session[:user_id])
     user.update_settings(params)
   end
+
+  get '/profile/:username' do |username|
+    @user = User.first(:username => username)
+    if @user
+      slim :profile
+    else
+      redirect '/'
+    end
+  end
+
 end

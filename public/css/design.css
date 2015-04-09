@@ -22,6 +22,10 @@ body {
   visibility: hidden;
 }
 
+.center-text {
+  text-align:center;
+}
+
 /* Dropdownmenu */
 
 #menu {
@@ -121,6 +125,18 @@ body {
   height: 250px;
   float:left;
   color:#D1D1D3;
+}
+
+#header {
+  margin-top:0;
+  height:350px;
+  overflow:hidden;
+  padding:0;
+}
+
+#header-image {
+  position:absolute;
+  z-index:-1;
 }
 
 .main-block {

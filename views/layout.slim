@@ -18,7 +18,6 @@ html
           a.navbar-brand href='/home'
             p PinMe
 
-        
         - if @user
             ul.nav.navbar-nav.navbar-left.collapsing-element
               li.dropdown
@@ -51,7 +50,7 @@ html
           ul.nav.navbar-nav.navbar-left.collapsing-element
             li.dropdown.disabled
               a.dropdown-toggle.disabled href='#' data-toggle='dropdown' role='button' aria-expanded='false'
-                | Map
+                | Tours
                 span.caret
 
         form#main-searchbar.navbar-form.navbar-left searchaction='/tourdata' method='get' role='search'
@@ -78,7 +77,9 @@ html
             a.navbar-brand.navbar-right.collapsing-element href='#'
                 i.fa.fa-user
         - else 
-            a.navbar-brand.navbar-right.collapsing-element href="/login" Login        
+            ul.nav.navbar-nav.navbar-right
+              li
+                a href="/login" Login      
 
     == yield
     script src='//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js'

@@ -1,0 +1,43 @@
+#map-canvas.col-md-12
+
+#overlay.settings-toggler
+.panel.panel-default.col-md-8.col-md-offset-2 id='settings'
+  .panel-heading Settings
+  form action='/settings' method='POST'
+    .panel-body
+
+      |Change mail:
+      .email
+        .input-group id='change-email'
+          input.form-control name='current-email' id='current-email' placeholder='Current email' type='email'
+        .input-group
+          input.form-control name='new-email' id='new-email' placeholder='Change email' type='email'
+
+      |Change password:
+      .change-password
+        .input-group id='change-password'
+          input.form-control name='current-password' id='current-password' placeholder='Current password' type='password'
+        .input-group id='change-password'
+          input.form-control name='new-password' id='new-password' placeholder='New password' type='password'
+        .input-group
+          input.form-control name='confirm-password' id='confirm-password' placeholder='Confirm password' type='password'
+
+      |Username color:
+      select.form-control name='color' id='color'
+        - for color in @colors
+          - if color.id == @user.setting.color.id
+            option selected='' value="#{color.id}" #{color.name}
+          - else
+            option value="#{color.id}" #{color.name}
+
+      |Zoom level:
+      select.form-control name='zoom-level' id='zoom-level'
+        - for i in 1..4
+          - if i == @user.setting.zoom_level
+            option selected='' value="#{i}" #{i}
+          - else
+            option value="#{i}" #{i}
+
+      .confirm-buttons
+        button.btn.btn-primary type='reset' Discard
+        button.btn.btn-primary id='settings-submit' type='submit' Save

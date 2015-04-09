@@ -72,9 +72,8 @@ class App < Sinatra::Base
   end
 
   post '/register' do
-    user_data = { first_name: params['firstname'], last_name: params['lastname'],
-                  username: params['username'], password: params['password'],
-                  email: params['email'], premium: false}
+    user_data = { first_name: params['firstname'], last_name: params['lastname'], username: params['username'], 
+                  password: params['password'], email: params['email'], premium: false}
 
     user = User.create(user_data)
 

@@ -54,5 +54,8 @@ div class="center-block main-block"
       button id="create-account-button" type="submit" class="btn btn-default" Sign up!
   -if flash[:error]
     div class='flash-error col-md-12'
-      -for error in flash[:error]
-        p #{error}
+      - if flash[:error].is_a? Array
+        for error in flash[:error]
+          p #{error}
+      - else
+        p #{flash[:error]}

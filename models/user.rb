@@ -19,6 +19,11 @@ class User
   has n, :savedtours
   has n, :tours, :through => :savedtours
 
+  def self.authenticate(username, password)
+    user = User.first(:username => username)
+    user && user.password == password
+  end
+
   def name
     @first_name + ' ' + @last_name
   end
@@ -28,11 +33,6 @@ class User
     change_password(params['new-password'])
     change_zoomlevel(params['zoom-level'])
     change_color(params['color'])
-  end
-
-  def self.authenticate(username, password)
-    user = User.first(:username => username)
-    user && user.password == password
   end
 
   private

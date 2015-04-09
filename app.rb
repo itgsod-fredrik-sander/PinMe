@@ -90,8 +90,9 @@ class App < Sinatra::Base
   end
 
   get '/profile/:username' do |username|
-    @user = User.first(:username => username)
-    if @user
+    @user = User.get(session[:user_id])
+    @profile_user = User.first(:username => username)
+    if @profile_user
       slim :profile
     else
       redirect '/'

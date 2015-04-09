@@ -1,56 +1,56 @@
 nav.navbar.navbar-default
   .container-fluid
     .navbar-header
-      button.navbar-toggle.collapsed type="button" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+      button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1'
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
         span.icon-bar
-      a.navbar-brand href="/home"
+      a.navbar-brand href='/home'
         p PinMe
 
 
     ul.nav.navbar-nav.navbar-left.collapsing-element
       li.dropdown
-        a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+        a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
           | Map
           span.caret
-        ul.dropdown-menu role="menu"
+        ul.dropdown-menu role='menu'
           li
-            a href="#" View Tours
+            a href='#' View Tours
           li
-            a href="#" Search
+            a href='#' Search
 
     ul.nav.navbar-nav.navbar-left.collapsing-element
       li.dropdown
-        a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+        a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
           | Tours
           span.caret
-        ul.dropdown-menu role="menu"
+        ul.dropdown-menu role='menu'
           li
-            a href="#" Create
+            a href='#' Create
           li
-            a href="#" Search
+            a href='#' Search
 
-    form#main-searchbar.navbar-form.navbar-left searchaction='/tourdata' method='get' role="search"
+    form#main-searchbar.navbar-form.navbar-left searchaction='/tourdata' method='get' role='search'
       .form-group
-        input#id.form-control type="text" placeholder="Search" name='name'
-      button#search-tour.btn.btn-primary type="submit" Submit
+        input#id.form-control type='text' placeholder='Search' name='name'
+      button#search-tour.btn.btn-primary type='submit' Submit
 
     ul.nav.navbar-nav.navbar-right.collapsing-element
       li.dropdown
-        a.dropdown-toggle href="#" data-toggle="dropdown" role="button" aria-expanded="false"
+        a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
           | #{@user.username}
           span.caret
-        ul.dropdown-menu role="menu"
+        ul.dropdown-menu role='menu'
           li
-            a#navbar-profile href="#" Profile
+            a#navbar-profile href='#' Profile
           li
-            a.settings-toggler href="#" Settings
+            a.settings-toggler href='#' Settings
           li
-            a href="/logout" Logout
+            a href='/logout' Logout
 
-    a.navbar-brand.navbar-right.collapsing-element href="#"
+    a.navbar-brand.navbar-right.collapsing-element href='#'
       i.fa.fa-user
 
 #menu.col-md-2
@@ -76,7 +76,7 @@ nav.navbar.navbar-default
 #map-canvas.col-md-12
 #profile.col-md-10
   div#profile-summary.col-md-4.panel.panel-default
-    img src="/images/profile_placeholder.png"
+    img src='/images/profile_placeholder.png'
     .panel-body  
       h2 = "#{@user.first_name} #{@user.last_name}"
       h4 Expert Tour Creator
@@ -90,41 +90,41 @@ nav.navbar.navbar-default
 #overlay.settings-toggler
 .panel.panel-default.col-md-8.col-md-offset-2 id='settings'
   .panel-heading Settings
-  form action="/settings" method="POST"
+  form action='/settings' method='POST'
     .panel-body
 
       |Change mail:
       .email
-        .input-group id="change-email"
-          input.form-control name="current-email" id='current-email' placeholder="Current email" type="email"
+        .input-group id='change-email'
+          input.form-control name='current-email' id='current-email' placeholder='Current email' type='email'
         .input-group
-          input.form-control name="new-email" id='new-email' placeholder="Change email" type="email"
+          input.form-control name='new-email' id='new-email' placeholder='Change email' type='email'
 
       |Change password:
       .change-password
-        .input-group id="change-password"
-          input.form-control name="current-password" id='current-password' placeholder="Current password" type="password"
-        .input-group id="change-password"
-          input.form-control name="new-password" id='new-password' placeholder="New password" type="password"
+        .input-group id='change-password'
+          input.form-control name='current-password' id='current-password' placeholder='Current password' type='password'
+        .input-group id='change-password'
+          input.form-control name='new-password' id='new-password' placeholder='New password' type='password'
         .input-group
-          input.form-control name="confirm-password" id='confirm-password' placeholder="Confirm password" type="password"
+          input.form-control name='confirm-password' id='confirm-password' placeholder='Confirm password' type='password'
 
       |Username color:
-      select.form-control name="color" id='color'
+      select.form-control name='color' id='color'
         - for color in @colors
           - if color.id == @user.setting.color.id
-            option selected="" value="#{color.id}" #{color.name}
+            option selected='' value="#{color.id}" #{color.name}
           - else
             option value="#{color.id}" #{color.name}
 
       |Zoom level:
-      select.form-control name="zoom-level" id='zoom-level'
+      select.form-control name='zoom-level' id='zoom-level'
         - for i in 1..4
           - if i == @user.setting.zoom_level
-            option selected="" value="#{i}" #{i}
+            option selected='' value="#{i}" #{i}
           - else
             option value="#{i}" #{i}
 
       .confirm-buttons
-        button.btn.btn-primary type="reset" Discard
-        button.btn.btn-primary id="settings-submit" type="submit" Save
+        button.btn.btn-primary type='reset' Discard
+        button.btn.btn-primary id='settings-submit' type='submit' Save

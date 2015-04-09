@@ -1,69 +1,45 @@
 #header.col-md-12
-  img#header-image src="images/login-panel-image.jpg" /
-  .jumbotron.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-12 style="background-color:transparent;" 
+  img#header-image src='images/login-panel-image.jpg'
+  .jumbotron.col-lg-4.col-lg-offset-4.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-12 style='background-color:transparent;' 
     h1.center-text style="color:white;"  PinMe
-    p.center-text Det enklaste sättet att uppleva världen
+    p.center-text The easiest way to explore the world
     p
-      a.btn.btn-primary.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-10.col-xs-offset-1 href="#option-panel" role="button"  Bli medlem idag!
+      #register-button.btn.btn-primary.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-10.col-xs-offset-1 href='#option-panel' role='button'  Become a member today!
 
-.center-block.main-block
-  #login-rectangle
-    form action='/login' method='post' style='margin-top:37px;'
-      .input-group.col-lg-6.col-lg-offset-3
-        .input-group style='margin-bottom:40px;'
-          input.form-control type='text' placeholder='Username' id='username' name='username'
-          span.input-group-addon
-            i.fa.fa-user
-        .input-group
-          input.form-control type='password' placeholder='Password' id='password' name='password'
-          span.input-group-addon
-            i.fa.fa-lock
-        button#login-button.btn.btn-default type='submit' Login
+#register-rectangle.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-12
+  form action='/register' method='post' style='margin-top:21px;'
+    .input-group.input
+      input.form-control type='text' placeholder='Username' id='username' name='username'
+      span.input-group-addon
+        i.fa.fa-user
+    .input-group.input
+      input.form-control type='password' placeholder='Password' id='password' name='password'
+      span class='input-group-addon'
+        i.fa.fa-lock
+    .input-group.input
+      input.form-control type='text' placeholder='Email' id='email' name='email'
+      span.input-group-addon
+        i.fa.fa-envelope
+    .input-group.input
+      input.form-control type='text' placeholder='First name' id='firstname' name='firstname'
+      span.input-group-addon
+        i.fa.fa-database
+    .input-group.input
+      input.form-control type='text' placeholder='Last name' id='lastname' name='lastname'
+      span.input-group-addon
+        i.fa.fa-database
+    button.btn.btn-success.col-md-12.col-sm-12.col-xs-12 style='margin-top:8px;' type='submit' Register
 
-  #status-rectangle
-    .col-lg-6.col-lg-offset-3
-      #info
-        h1.text-center #{@users_registered}
-        p.text-center accounts
-    .col-lg-10.col-lg-offset-1
-      button#register-button.btn.btn-default type='submit' Register
-
-  #register-rectangle
-    #login-rectangle
-      form#account-form action='/register' method='post' style='margin-top:21px;'
-        .input-group.col-lg-11.col-lg-offset-1
-          .input-group.input
-            input.form-control type='text' placeholder='Username' id='username' name='username'
-            span.input-group-addon
-              i.fa.fa-user
-          .input-group.input
-            input.form-control type='password' placeholder='Password' id='password' name='password'
-            span class='input-group-addon'
-              i.fa.fa-lock
-          .input-group.input
-            input.form-control type='text' placeholder='Email' id='email' name='email'
-            span.input-group-addon
-              i.fa.fa-envelope
-          .input-group.input
-            input.form-control type='text' placeholder='First name' id='firstname' name='firstname'
-            span.input-group-addon
-              i.fa.fa-database
-          .input-group.input
-            input.form-control type='text' placeholder='Last name' id='lastname' name='lastname'
-            span.input-group-addon
-              i.fa.fa-database
-              
-  #create-rectangle
-    .col-lg-12.col-lg-offset-0
-      #info
-        h1.text-center Member!
-        p.text-center Join PinMe today!
-    .col-lg-10.col-lg-offset-1
-      button#create-account-button.btn.btn-default type='submit' Sign up!
+.col-md-6.col-md-offset-3
   -if flash[:error]
-    .flash-error.col-md-12
-      - if flash[:error].is_a? Array
-        for error in flash[:error]
-          p #{error}
-      - else
-        p #{flash[:error]}
+    .panel.panel-danger style='margin-top:50px;'
+      .panel-heading
+        h3.panel-title Something went wrong!
+      .panel-body
+        - if flash[:error].is_a? Array
+          - for error in flash[:error]
+            p #{error}
+        - else
+          p #{flash[:error]}
+
+

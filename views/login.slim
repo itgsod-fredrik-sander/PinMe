@@ -1,59 +1,59 @@
-div class="center-block main-block"
-  div id="login-rectangle"
-    form action="/login" method="post" style="margin-top:37px;"
-      div class="input-group col-lg-6 col-lg-offset-3"
-        div class="input-group" style="margin-bottom:40px;"
-          input type="text" class="form-control" placeholder="Username" id="username" name="username"
-          span class="input-group-addon"
-            i class="fa fa-user"
-        div class="input-group"
-          input type="password" class="form-control" placeholder="Password" id="password" name="password"
-          span class="input-group-addon"
-            i class="fa fa-lock"
-        button id="login-button" type="submit" class="btn btn-default" Login
+.center-block.main-block
+  #login-rectangle
+    form action='/login' method='post' style='margin-top:37px;'
+      .input-group.col-lg-6.col-lg-offset-3
+        .input-group style='margin-bottom:40px;'
+          input.form-control type='text' placeholder='Username' id='username' name='username'
+          span.input-group-addon
+            i.fa.fa-user
+        .input-group
+          input.form-control type='password' placeholder='Password' id='password' name='password'
+          span.input-group-addon
+            i.fa.fa-lock
+        button#login-button.btn.btn-default type='submit' Login
 
-  div id="status-rectangle"
-    div class="col-lg-6 col-lg-offset-3"
-      div id="info"
-        h1 class="text-center" #{@users_registered}
-        p class="text-center" accounts
-    div class="col-lg-10 col-lg-offset-1"
-      button id="register-button" type="submit" class="btn btn-default" Register
+  #status-rectangle
+    .col-lg-6.col-lg-offset-3
+      #info
+        h1.text-center #{@users_registered}
+        p.text-center accounts
+    .col-lg-10.col-lg-offset-1
+      button#register-button.btn.btn-default type='submit' Register
 
-  div id="register-rectangle"
-    div id="login-rectangle"
-      form id="account-form" action="/register" method="post" style="margin-top:21px;"
-        div class="input-group col-lg-11 col-lg-offset-1"
-          div class="input-group input"
-            input type="text" class="form-control" placeholder="Username" id="username" name="username"
-            span class="input-group-addon"
-              i class="fa fa-user"
-          div class="input-group input"
-            input type="password" class="form-control" placeholder="Password" id="password" name="password"
-            span class="input-group-addon"
-              i class="fa fa-lock"
-          div class="input-group input"
-            input type="text" class="form-control" placeholder="Email" id="email" name="email"
-            span class="input-group-addon"
-              i class="fa fa-envelope"
-          div class="input-group input"
-            input type="text" class="form-control" placeholder="First name" id="firstname" name="firstname"
-            span class="input-group-addon"
-              i class="fa fa-database"
-          div class="input-group input"
-            input type="text" class="form-control" placeholder="Last name" id="lastname" name="lastname"
-            span class="input-group-addon"
-              i class="fa fa-database"
+  #register-rectangle
+    #login-rectangle
+      form#account-form action='/register' method='post' style='margin-top:21px;'
+        .input-group.col-lg-11.col-lg-offset-1
+          .input-group.input
+            input.form-control type='text' placeholder='Username' id='username' name='username'
+            span.input-group-addon
+              i.fa.fa-user
+          .input-group.input
+            input.form-control type='password' placeholder='Password' id='password' name='password'
+            span class='input-group-addon'
+              i.fa.fa-lock
+          .input-group.input
+            input.form-control type='text' placeholder='Email' id='email' name='email'
+            span.input-group-addon
+              i.fa.fa-envelope
+          .input-group.input
+            input.form-control type='text' placeholder='First name' id='firstname' name='firstname'
+            span.input-group-addon
+              i.fa.fa-database
+          .input-group.input
+            input.form-control type='text' placeholder='Last name' id='lastname' name='lastname'
+            span.input-group-addon
+              i.fa.fa-database
               
-  div id="create-rectangle"
-    div class="col-lg-12 col-lg-offset-0"
-      div id="info"
-        h1 class="text-center" Member!
-        p class="text-center" Join PinMe today!
-    div class="col-lg-10 col-lg-offset-1"
-      button id="create-account-button" type="submit" class="btn btn-default" Sign up!
+  #create-rectangle
+    .col-lg-12.col-lg-offset-0
+      #info
+        h1.text-center Member!
+        p.text-center Join PinMe today!
+    .col-lg-10.col-lg-offset-1
+      button#create-account-button.btn.btn-default type='submit' Sign up!
   -if flash[:error]
-    div class='flash-error col-md-12'
+    .flash-error.col-md-12
       - if flash[:error].is_a? Array
         for error in flash[:error]
           p #{error}

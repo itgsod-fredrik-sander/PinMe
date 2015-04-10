@@ -31,3 +31,5 @@ enquire.register("screen and (max-width:768px)", {
     window.addEventListener('scroll', parallax);
   }
 });
+
+window.addEventListener('scroll', parallax);

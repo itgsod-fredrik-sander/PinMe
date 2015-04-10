@@ -139,7 +139,8 @@ body {
 }
 
 #features {
-  margin-top:35px;
+  margin-top:50px;
+  margin-bottom:50px;
   text-align:center;
 }
 
@@ -237,6 +238,32 @@ body {
     float:right;
 }
 
+/* Footer */
+
+#footer {
+  background-color:#292C2F;
+  color:white;
+  padding-top:15px;
+  padding-bottom:15px;
+}
+
+#pinme-info .col-md-12 {
+  margin-bottom:10px;
+  margin-top:10px;
+}
+
+@media(max-width: 990px) {
+  #footer {
+    text-align:center;
+    padding-bottom:225px;
+  }
+}
+
+@media(max-width: 768px) {
+  #footer {
+    padding-bottom:50px;
+  }
+}
 
 
 

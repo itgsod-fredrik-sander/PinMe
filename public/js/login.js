@@ -21,4 +21,13 @@ function parallax() {
   image.style.top = yPos * 1 - 70 + 'px';
 }
 
-window.addEventListener('scroll', parallax);
+enquire.register("screen and (max-width:768px)", {
+  match : function () {
+    window.removeEventListener('scroll', parallax);
+    document.getElementById('header-image').style.top = '0px';
+  },
+
+  unmatch : function() {
+    window.addEventListener('scroll', parallax);
+  }
+});

@@ -1,13 +1,14 @@
-function scrollToElement(element, time) {
+function scrollToElement(element, time, offset) {
   if (typeof(time) === 'undefined') {time = 1000}
+  if (typeof(offset) === 'undefined') {offset = 0}
 
   var pos = $(element).offset().top;
-  $('body, html').animate({scrollTop: pos}, time);
+  $('body, html').animate({scrollTop: pos + offset}, time);
 }
 
 $('#register-button').click(function() {
   toggleVisibility($('#register-rectangle'));
-  scrollToElement($('#register-rectangle'), 300);
+  scrollToElement($('#features'), 300, -50);
 });
 
 // 1 is the ratio of which the image should follow (1 = 100 of movement)

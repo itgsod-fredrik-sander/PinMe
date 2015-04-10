@@ -1,7 +1,7 @@
 /* General CSS */
 
 * {
-  font-family: 'Open Sans', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 html, body, #map-canvas {
@@ -144,6 +144,11 @@ body {
   margin-bottom:0px;
   border-radius:0;
 }
+
+.dropdown-menu {
+  padding:17px;
+}
+
 
 @media(max-width: 768px) {
   .navbar-collapse  > .collapsing-element {

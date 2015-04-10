@@ -138,6 +138,30 @@ body {
   display:none;
 }
 
+#features {
+  margin-top:35px;
+  text-align:center;
+}
+
+#features h3 {
+  margin-top:80px;
+}
+
+#advertisement-banner {
+  background-color:#3498DB;
+  color:white;
+}
+
+@media(max-width: 990px) {
+  #features h3 {
+    margin-top:20px;
+  }
+
+  #features .col-md-4 {
+    margin-bottom:40px;
+  }
+}
+
 /* Navbar */
 
 .navbar {

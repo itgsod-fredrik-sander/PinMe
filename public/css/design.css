@@ -149,6 +149,13 @@ body {
   padding:17px;
 }
 
+.dropdown-menu input {
+  margin-bottom:7px;
+}
+
+.dropdown-menu .btn-primary {
+  margin-right:3%;
+}
 
 @media(max-width: 768px) {
   .navbar-collapse  > .collapsing-element {

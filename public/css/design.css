@@ -5,22 +5,22 @@
 }
 
 html, body, #map-canvas {
-  height: 100%;
-  margin: 0px;
-  padding: 0px;
+  height:100%;
+  margin:0px;
+  padding:0px;
 }
 
 body {
 }
 
 .flash-error {
-  background-color: #C83F38;
+  background-color:#C83F38;
   color:white;
   text-align:center;
 }
 
 .hidden {
-  visibility: hidden;
+  visibility:hidden;
 }
 
 .visible {
@@ -77,47 +77,47 @@ body {
 /* Findtour */
 
 .caption{
-    height: 200px;
+    height:200px;
 }
 
 .titlebox{
-    height: 56px;
-    overflow: hidden;
+    height:56px;
+    overflow:hidden;
 }
 
 .descbox{
-    height: 55px;
-    overflow: scroll;
+    height:55px;
+    overflow:scroll;
 }
 
 .confirm-buttons form{
-    float: left;
+    float:left;
 }
 
 /* Profile */
 
 #profile {
-  margin-top: 10px;
+  margin-top:10px;
 }
 
 #profile-summary{
-  padding: 0;
+  padding:0;
 }
 
 #profile-summary img {
-  width: 100%;
+  width:100%;
 }
 
 #profile-summary h4 {
-  margin-top: 0px;
+  margin-top:0px;
 }
 
 #profile-summary h2 {
-  margin-bottom: 4px;
+  margin-bottom:4px;
 }
 
 #informationbox {
-  margin-top: 0;
+  margin-top:0;
 }
 
 /* Login */
@@ -159,16 +159,16 @@ body {
 
 @media(max-width: 768px) {
   .navbar-collapse  > .collapsing-element {
-    float: left;
-    width: 15%;
+    float:left;
+    width:15%;
   }
 
   .navbar-brand {
-    padding-left: 0;
+    padding-left:0;
   }
 
   .collapsing-element > a {
-    margin-left: 25.8%;
+    margin-left:25.8%;
   }
 }
 
@@ -176,41 +176,41 @@ body {
 
 #overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 100;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+  z-index:100;
   background-color: black;
-  opacity: 0.5;
-  display: none;
+  opacity:0.5;
+  display:none;
 }
 
 #background {
-  width :100%;
-  height: 100%;
+  width:100%;
+  height:100%;
 }
 
 #settings {
-  position: fixed;
-  top: 25%;
-  z-index: 101;
-  display: none;
-  padding: 0;
+  position:fixed;
+  top:25%;
+  z-index:101;
+  display:none;
+  padding:0;
 }
 
 #change-email {
-    float: left;
+    float:left;
     margin-right: 10px;
 }
 
 #change-password {
-    float: left;
-    margin-right: 10px;
+    float:left;
+    margin-right:10px;
 }
 
 .confirm-buttons {
-    float: right;
+    float:right;
 }
 
 

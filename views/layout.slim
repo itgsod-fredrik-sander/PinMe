@@ -29,12 +29,6 @@ html
                     a href='#' View Tours
                   li
                     a href='#' Search
-        - else
-          ul.nav.navbar-nav.navbar-left.collapsing-element
-            li.dropdown.disabled
-              a.dropdown-toggle.disabled href='#' data-toggle='dropdown' role='button' aria-expanded='false'
-                | Map
-                span.caret
         - if @user
             ul.nav.navbar-nav.navbar-left.collapsing-element
               li.dropdown
@@ -46,20 +40,12 @@ html
                     a href='#' Create
                   li
                     a href='#' Search
-        - else
-          ul.nav.navbar-nav.navbar-left.collapsing-element
-            li.dropdown.disabled
-              a.dropdown-toggle.disabled href='#' data-toggle='dropdown' role='button' aria-expanded='false'
-                | Tours
-                span.caret
 
         form#main-searchbar.navbar-form.navbar-left searchaction='/tourdata' method='get' role='search'
           .form-group
-            input#id.form-control type='text' placeholder='Search' name='name'
           - if @user
+            input#id.form-control type='text' placeholder='Search' name='name'
             button#search-tour.btn.btn-primary type='submit' Submit
-          - else
-            button#search-tour.btn.btn-primary.disabled type='submit' Submit
 
         - if @user
             ul.nav.navbar-nav.navbar-right.collapsing-element

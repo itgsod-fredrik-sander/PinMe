@@ -10,13 +10,8 @@ html, body, #map-canvas {
   padding:0px;
 }
 
-body {
-}
-
-.flash-error {
-  background-color:#C83F38;
-  color:white;
-  text-align:center;
+.cursive {
+  font-family:cursive;
 }
 
 .hidden {

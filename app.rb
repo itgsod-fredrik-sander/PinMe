@@ -38,7 +38,6 @@ class App < Sinatra::Base
   end
 
   get '/login' do 
-    @users_registered = User.all.size
     slim :login
   end
 

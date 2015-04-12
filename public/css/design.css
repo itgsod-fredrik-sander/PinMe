@@ -168,15 +168,15 @@ html, body, #map-canvas {
   border-radius:0;
 }
 
-.dropdown-menu {
+#login .dropdown-menu {
   padding:17px;
 }
 
-.dropdown-menu input {
+#login .dropdown-menu input {
   margin-bottom:7px;
 }
 
-.dropdown-menu .btn-primary {
+#login .dropdown-menu .btn-primary {
   margin-right:3%;
 }
 

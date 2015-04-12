@@ -10,69 +10,71 @@ html
     nav.navbar.navbar-default
       .container-fluid
         .navbar-header
-          button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#bs-example-navbar-collapse-1'
+          button.navbar-toggle.collapsed type='button' data-toggle='collapse' data-target='#navbar'
             span.sr-only Toggle navigation
             span.icon-bar
             span.icon-bar
             span.icon-bar
           a.navbar-brand href='/home'
             p.cursive PinMe
+        
+        .collapse.navbar-collapse id='navbar'
+          ul.navbar.navbar-nav
+            - if @user
+                ul.nav.navbar-nav.navbar-left.collapsing-element
+                  li.dropdown
+                    a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
+                      | Map
+                      span.caret
+                    ul.dropdown-menu role='menu'
+                      li
+                        a href='#' View Tours
+                      li
+                        a href='#' Search
+            - if @user
+                ul.nav.navbar-nav.navbar-left.collapsing-element
+                  li.dropdown
+                    a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
+                      | Tours
+                      span.caret
+                    ul.dropdown-menu role='menu'
+                      li
+                        a href='#' Create
+                      li
+                        a href='#' Search
 
-        - if @user
-            ul.nav.navbar-nav.navbar-left.collapsing-element
-              li.dropdown
-                a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
-                  | Map
-                  span.caret
-                ul.dropdown-menu role='menu'
-                  li
-                    a href='#' View Tours
-                  li
-                    a href='#' Search
-        - if @user
-            ul.nav.navbar-nav.navbar-left.collapsing-element
-              li.dropdown
-                a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
-                  | Tours
-                  span.caret
-                ul.dropdown-menu role='menu'
-                  li
-                    a href='#' Create
-                  li
-                    a href='#' Search
+            form#main-searchbar.navbar-form.navbar-left searchaction='/tourdata' method='get' role='search'
+              .form-group
+              - if @user
+                input#id.form-control type='text' placeholder='Search' name='name'
+                button#search-tour.btn.btn-primary type='submit' Submit
 
-        form#main-searchbar.navbar-form.navbar-left searchaction='/tourdata' method='get' role='search'
-          .form-group
-          - if @user
-            input#id.form-control type='text' placeholder='Search' name='name'
-            button#search-tour.btn.btn-primary type='submit' Submit
-
-        - if @user
-            ul.nav.navbar-nav.navbar-right.collapsing-element
-              li.dropdown
-                a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
-                  | #{@user.username}
-                  span.caret
-                ul.dropdown-menu role='menu'
-                  li
-                    a href="/profile/#{@user.username}" Profile
-                  li
-                    a.settings-toggler href='#' Settings
-                  li
-                    a href='/logout' Logout
-            a.navbar-brand.navbar-right.collapsing-element href='#'
-                i.fa.fa-user
-        - else
-          #login 
-            ul.nav.navbar-nav.navbar-right
-              li.dropdown
-                a#navlogin.dropdown-toggle href='#' data-toggle='dropdown' Login
-                .dropdown-menu
-                  form.form action='/login' method='post'
-                    input#username name='username' type='text' placeholder='Username'
-                    input#password name='password' type='password' placeholder='Password'
-                    button.btn.btn-primary type='submit' Log in
-                    a.btn.btn-info href='/login' Register
+            - if @user
+                ul.nav.navbar-nav.navbar-right.collapsing-element
+                  li.dropdown
+                    a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
+                      | #{@user.username}
+                      span.caret
+                    ul.dropdown-menu role='menu'
+                      li
+                        a href="/profile/#{@user.username}" Profile
+                      li
+                        a.settings-toggler href='#' Settings
+                      li
+                        a href='/logout' Logout
+                a.navbar-brand.navbar-right.collapsing-element href='#'
+                    i.fa.fa-user
+            - else
+              #login 
+                ul.nav.navbar-nav.navbar-right
+                  li.dropdown
+                    a#navlogin.dropdown-toggle href='#' data-toggle='dropdown' Login
+                    .dropdown-menu
+                      form.form action='/login' method='post'
+                        input#username name='username' type='text' placeholder='Username'
+                        input#password name='password' type='password' placeholder='Password'
+                        button.btn.btn-primary type='submit' Log in
+                        a.btn.btn-info href='/login' Register
 
     == yield
     #footer.col-md-12

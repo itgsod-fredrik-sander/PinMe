@@ -35,40 +35,6 @@ html, body, #map-canvas {
   color:white;
 }
 
-/* Dropdownmenu */
-
-#menu {
-  padding-top:15px;
-  height:100%;
-  display:none;
-  list-style-type:none;
-  background-color:#2C3E50;
-}
-
-#dropdown-menu {
-  margin-top:7px;
-}
-
-#menu li a {
-  margin-top:5;
-  margin-bottom:5;
-  color:white;
-}
-
-#menu li a:hover {
-  color:#1BBC9C;
-}
-
-.dropdown-menu li a:hover, #menu li a:hover {
-  text-decoration:none;
-}
-
-.dropdown-menu li a {
-  padding-bottom:7px;
-  padding-top:7px;
-}
-
-
 /* Findtour */
 
 .caption{

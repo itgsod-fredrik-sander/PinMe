@@ -7,8 +7,7 @@ function scrollToElement(element, time, offset) {
 }
 
 $('#register-button').click(function() {
-  toggleVisibility($('#register-rectangle'));
-  scrollToElement($('#features'), 300, -50);
+  scrollToElement($('#register-rectangle'), 300, -50);
 });
 
 // 1 is the ratio of which the image should follow (1 = 100 of movement)
@@ -33,13 +32,3 @@ enquire.register("screen and (max-width:768px)", {
 });
 
 window.addEventListener('scroll', parallax);
-
-enquire.register("screen and (max-width:968px)", {
-  match : function () {
-    $('#register-rectangle').css('float', 'none');
-  },
-
-  unmatch : function() {
-    $('#register-rectangle').css('float', 'left');
-  }
-});

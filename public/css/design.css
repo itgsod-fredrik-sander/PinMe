@@ -98,7 +98,6 @@ html, body, #map-canvas {
 }
 
 #register-rectangle {
-  display:none;
   margin-bottom:50px;
 }
 
@@ -128,6 +127,12 @@ html, body, #map-canvas {
 
   #features .col-md-4 {
     margin-bottom:40px;
+  }
+}
+
+@media(max-width:968px) {
+  #register-rectangle {
+    float:none;
   }
 }
 

@@ -23,28 +23,32 @@
     p Praesent eget massa turpis. Sed quam nisi, varius tempor diam quis, auctor iaculis nunc.
 
 #register-rectangle.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-12
-  form action='/register' method='post' style='margin-top:21px;'
-    .input-group.input
-      span.input-group-addon
-        i.fa.fa-user
-      input.form-control type='text' placeholder='Username' id='username' name='username'
-    .input-group.input
-      span class='input-group-addon'
-        i.fa.fa-lock
-      input.form-control type='password' placeholder='Password' id='password' name='password'
-    .input-group.input
-      span.input-group-addon
-        i.fa.fa-envelope
-      input.form-control type='text' placeholder='Email' id='email' name='email'
-    .input-group.input
-      span.input-group-addon
-        i.fa.fa-database
-      input.form-control type='text' placeholder='First name' id='firstname' name='firstname'
-    .input-group.input
-      span.input-group-addon
-        i.fa.fa-database
-      input.form-control type='text' placeholder='Last name' id='lastname' name='lastname'
-    button.btn.btn-success.col-md-12.col-sm-12.col-xs-12 style='margin-top:8px;' type='submit' Register
+  .panel.panel-primary
+    .panel-heading
+      h3.text-center Sign up for PinMe
+    .panel-body
+      form action='/register' method='post' style='margin-top:21px;'
+        .input-group.input
+          span.input-group-addon
+            i.fa.fa-user
+          input.form-control type='text' placeholder='Username' id='username' name='username'
+        .input-group.input
+          span class='input-group-addon'
+            i.fa.fa-lock
+          input.form-control type='password' placeholder='Password' id='password' name='password'
+        .input-group.input
+          span.input-group-addon
+            i.fa.fa-envelope
+          input.form-control type='text' placeholder='Email' id='email' name='email'
+        .input-group.input
+          span.input-group-addon
+            i.fa.fa-database
+          input.form-control type='text' placeholder='First name' id='firstname' name='firstname'
+        .input-group.input
+          span.input-group-addon
+            i.fa.fa-database
+          input.form-control type='text' placeholder='Last name' id='lastname' name='lastname'
+        button.btn.btn-success.col-md-12.col-sm-12.col-xs-12 style='margin-top:8px;' type='submit' Register
 
 .col-md-6.col-md-offset-3
   -if flash[:error]

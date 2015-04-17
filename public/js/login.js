@@ -33,3 +33,13 @@ enquire.register("screen and (max-width:768px)", {
 });
 
 window.addEventListener('scroll', parallax);
+
+enquire.register("screen and (max-width:968px)", {
+  match : function () {
+    $('#register-rectangle').css('float', 'none');
+  },
+
+  unmatch : function() {
+    $('#register-rectangle').css('float', 'left');
+  }
+});

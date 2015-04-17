@@ -40,12 +40,11 @@ html
                       a href='#' Create
                     li
                       a href='#' Search
-
-          form#main-searchbar.navbar-form.navbar-left searchaction='/tourdata' method='get' role='search'
-            .form-group
-            - if @user
-              input#id.form-control type='text' placeholder='Search' name='name'
-              button#search-tour.btn.btn-primary type='submit' Submit
+          - if @user
+            form#main-searchbar.navbar-form.navbar-left searchaction='/tourdata' method='get' role='search'
+              .form-group
+                input#id.form-control type='text' placeholder='Search' name='name'
+                button#search-tour.btn.btn-primary type='submit' Submit
 
           - if @user
               ul.nav.navbar-nav.navbar-right.collapsing-element

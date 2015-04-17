@@ -98,4 +98,9 @@ class App < Sinatra::Base
     end
   end
 
+  get '/tours/all' do
+    @tours = Tour.all
+    slim :tours
+  end
+
 end

@@ -1,0 +1,20 @@
+.col-md-12
+  table#tour-list.table.table-striped.table-hover
+    thead
+      tr
+        th
+        th Name
+        th Description
+        th Rating
+        th Pins
+    tbody
+      - for tour in @tours
+        tr
+          td
+            a.btn.btn-primary href="/tour/#{tour.id}" 
+              |View
+              li.fa.fa-arrow-right
+          td = tour.name
+          td = tour.description
+          td = tour.rating
+          td = tour.lines.size

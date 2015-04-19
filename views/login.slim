@@ -22,6 +22,18 @@
     h3 Map Guided Tours
     p Praesent eget massa turpis. Sed quam nisi, varius tempor diam quis, auctor iaculis nunc.
 
+.col-md-6.col-md-offset-3
+  -if flash[:error]
+    .panel.panel-danger style='margin-top:50px;'
+      .panel-heading
+        h3.panel-title Something went wrong!
+      .panel-body
+        - if flash[:error].is_a? Array
+          - for error in flash[:error]
+            p #{error}
+        - else
+          p #{flash[:error]}
+
 #register-rectangle.col-md-6.col-md-offset-3.col-sm-8.col-sm-offset-2.col-xs-12
   .panel.panel-primary
     .panel-heading
@@ -49,17 +61,4 @@
             i.fa.fa-database
           input.form-control type='text' placeholder='Last name' id='lastname' name='lastname'
         button.btn.btn-success.col-md-12.col-sm-12.col-xs-12 style='margin-top:8px;' type='submit' Register
-
-.col-md-6.col-md-offset-3
-  -if flash[:error]
-    .panel.panel-danger style='margin-top:50px;'
-      .panel-heading
-        h3.panel-title Something went wrong!
-      .panel-body
-        - if flash[:error].is_a? Array
-          - for error in flash[:error]
-            p #{error}
-        - else
-          p #{flash[:error]}
-
 

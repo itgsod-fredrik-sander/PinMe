@@ -1,0 +1,41 @@
+#tour
+  .col-md-12
+    .col-md-4
+      .col-md-12
+        .panel.panel-primary
+          .panel-heading.center-text
+            h2 = @tour.name
+          .panel-body.center-text
+            li.fa.fa-picture-o.fa-5x
+
+        .panel.panel-primary
+          .panel-body
+            p 
+              li.fa.fa-map-marker.fa-2x
+              |Placeholder
+            p 
+              li.fa.fa-tag.fa-2x
+              |Placeholder
+            p 
+              li.fa.fa-cog.fa-2x
+              |Placeholder
+            p 
+              li.fa.fa-gift.fa-2x
+              |Placeholder
+        
+    .col-md-8
+      .col-md-10.col-md-offset-1
+        .panel.panel-primary
+          .panel-body.center-text
+            .col-md-4.col-md-offset-1
+              li.fa.fa-comments.fa-5x
+              h1 Placeholder
+            .col-md-4.col-md-offset-1
+              li.fa.fa-heart.fa-5x
+              h1 = @tour.rating
+        
+        .panel.panel-primary
+          .panel-heading
+            h2.center-text = @tour.name
+          .panel-body
+            p = @tour.description

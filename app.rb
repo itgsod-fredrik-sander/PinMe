@@ -104,4 +104,9 @@ class App < Sinatra::Base
     slim :tours
   end
 
+  get '/tour/:id' do |id|
+    @tour = Tour.get(id)
+    slim :tour
+  end
+
 end

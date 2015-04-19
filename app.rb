@@ -57,7 +57,7 @@ class App < Sinatra::Base
       session[:user_id] = User.first(username: params['username']).id
       redirect '/home'
     else
-      flash[:error] = "Invalid account credentials, try again"
+      flash[:logerror] = "Invalid account credentials, try again"
       redirect '/login'
     end
   end
@@ -78,7 +78,7 @@ class App < Sinatra::Base
       session[:user_id] = user.id
       redirect '/home'
     else
-      flash[:error] = user.errors.values.flatten
+      flash[:regerror] = user.errors.values.flatten
       redirect '/login'
     end
   end

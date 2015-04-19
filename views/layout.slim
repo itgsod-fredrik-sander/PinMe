@@ -68,6 +68,12 @@ html
                 li.dropdown
                   a#navlogin.dropdown-toggle href='#' data-toggle='dropdown' Login
                   .dropdown-menu
+                    - if flash[:logerror]
+                      .panel.panel-danger
+                        .panel-heading
+                          h3.panel-title Error!
+                        .panel-body
+                          p Invalid username or password
                     h3.text-center Login
                     form.form action='/login' method='post'
                       input#username name='username' type='text' placeholder='Username'

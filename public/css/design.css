@@ -239,4 +239,8 @@ html, body, #map-canvas {
 }
 
 
+/* Tour */
 
+#tour {
+  margin-top:30px;
+}

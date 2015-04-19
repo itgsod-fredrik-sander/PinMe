@@ -99,6 +99,7 @@ class App < Sinatra::Base
   end
 
   get '/tours/all' do
+    @user = User.get(session[:user_id])
     @tours = Tour.all
     slim :tours
   end

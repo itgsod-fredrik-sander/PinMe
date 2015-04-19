@@ -20,27 +20,27 @@ html
             p.cursive PinMe
         #bs-example-navbar-collapse-1.collapse.navbar-collapse
           - if @user
-              ul.nav.navbar-nav.navbar-left.collapsing-element
-                li.dropdown
-                  a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
-                    | Map
-                    span.caret
-                  ul.dropdown-menu role='menu'
-                    li
-                      a href='#' View Tours
-                    li
-                      a href='#' Search
+            ul.nav.navbar-nav.navbar-left.collapsing-element
+              li.dropdown
+                a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
+                  | Map
+                  span.caret
+                ul.dropdown-menu role='menu'
+                  li
+                    a href='#' View Tours
+                  li
+                    a href='#' Search
           - if @user
-              ul.nav.navbar-nav.navbar-left.collapsing-element
-                li.dropdown
-                  a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
-                    | Tours
-                    span.caret
-                  ul.dropdown-menu role='menu'
-                    li
-                      a href='/tours/all' View
-                    li
-                      a href='#' Create
+            ul.nav.navbar-nav.navbar-left.collapsing-element
+              li.dropdown
+                a.dropdown-toggle href='#' data-toggle='dropdown' role='button' aria-expanded='false'
+                  | Tours
+                  span.caret
+                ul.dropdown-menu role='menu'
+                  li
+                    a href='/tours/all' View
+                  li
+                    a href='#' Create
           - if @user
             form#main-searchbar.navbar-form.navbar-left searchaction='/tourdata' method='get' role='search'
               .form-group
@@ -109,7 +109,6 @@ html
     script src='/js/bootstrap.js'
     script src='/js/enquire.min.js'
     script src='/js/maps.js'
-    script src='/js/bootstrap.js'
     script src='/js/menu.js'
     script src='/js/login.js'
     script src='/js/tours.js'

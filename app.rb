@@ -109,4 +109,10 @@ class App < Sinatra::Base
     slim :tour
   end
 
+  get '/savedtours' do 
+    user = User.get(session[:user_id])
+    @tours = user.savedtours.tours
+    slim :tours
+  end
+
 end

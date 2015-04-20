@@ -23,6 +23,13 @@
               li.fa.fa-gift.fa-2x
               |Placeholder
         
+        .panel.panel-primary
+          .panel-body
+            - if @savedtours.include? @tour
+              button.btn.btn-primary.col-md-12 href='#' Remove tour
+            - else
+              button.btn.btn-primary.col-md-12 href='#' Save tour
+        
     .col-md-8
       .col-md-10.col-md-offset-1
         .panel.panel-primary
